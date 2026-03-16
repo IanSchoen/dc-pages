@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DC BLACK — Visual Draft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0c0c0c;
+      --bg-raised: #141414;
+      --bg-card:   #191919;
+      --white:     #ffffff;
+      --orange:    #FF6B3B;
+      --border:    #282828;
+      --border-lt: #333333;
+      --text:      #ffffff;
+      --muted:     #888888;
+      --dim:       #bbbbbb;
+      --font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Global grain texture ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 250px 250px;
+    }
+
+    /* ── Thin orange accent bar at top ── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--orange) 30%, var(--orange) 70%, transparent 100%);
+      z-index: 9999;
+    }
+
+    /* ── Utility ── */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(12,12,12,0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 32px;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+      margin: 0 auto 0 48px;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a.active { color: var(--white); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .nav-login {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-login:hover { color: var(--white); }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 9px 22px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--orange);
+      border-radius: 300px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { background: transparent; color: var(--orange); }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 164px 0 108px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      background-image:
+        linear-gradient(135deg, rgba(12,12,12,0.92) 0%, rgba(12,12,12,0.72) 55%, rgba(12,12,12,0.94) 100%),
+        url('https://cdn.dynamitecircle.com/images/214fa9d717484ed755393a7c09856192.jpg');
+      background-size: cover;
+      background-position: center 55%;
+      overflow: hidden;
+    }
+
+    /* Orange radial glow behind headline */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -100px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(ellipse at center, rgba(255,107,59,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 32px;
+      border: 1.5px solid var(--orange);
+      padding: 6px 16px;
+      border-radius: 300px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.6;
+      color: var(--dim);
+      max-width: 620px;
+      margin-bottom: 16px;
+    }
+
+    .hero-support {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 44px;
+      line-height: 1.5;
+    }
+
+    .cta-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 15px 36px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border: 2px solid var(--orange);
+      border-radius: 300px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn-primary:hover { background: transparent; color: var(--orange); }
+
+    .btn-ghost {
+      font-size: 15px;
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+
+    .btn-ghost:hover { color: var(--white); }
+
+    /* ── STATS STRIP ── */
+    #stats {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-raised);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat-cell {
+      padding: 36px 32px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-cell:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SECTION SHARED ── */
+    section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 28px;
+      color: var(--white);
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--dim);
+    }
+
+    /* ── WHO THIS IS FOR ── */
+    #who {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #who::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      left: -80px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(255,107,59,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 56px;
+    }
+
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    .profile-card {
+      padding: 52px 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.2s;
+    }
+
+    .profile-card:hover { border-color: var(--border-lt); }
+
+    .profile-card .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1.5px solid var(--orange);
+      color: var(--orange);
+      padding: 4px 14px;
+      border-radius: 300px;
+      margin-bottom: 20px;
+    }
+
+    /* ── MEMBER VOICES ── */
+    #social-proof {
+      background: linear-gradient(180deg, #111111 0%, #161616 100%);
+      position: relative;
+    }
+
+    .proof-intro {
+      max-width: 560px;
+      margin-bottom: 64px;
+    }
+
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) { .members-grid { grid-template-columns: 1fr; } }
+
+    .member-card {
+      background: var(--bg-card);
+      padding: 44px 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .member-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--border);
+      margin-bottom: 24px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .member-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .member-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .member-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: var(--white);
+    }
+
+    .member-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .member-quote {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--dim);
+      border-left: 2px solid var(--orange);
+      padding-left: 16px;
+      font-style: italic;
+      margin-top: auto;
+    }
+
+    /* placeholder cards */
+    .member-card.placeholder {
+      border: 1.5px dashed var(--border-lt);
+      background: var(--bg);
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      text-align: center;
+    }
+
+    .placeholder-text {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── MASTERMIND ── */
+    #mastermind {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #mastermind::before {
+      content: '';
+      position: absolute;
+      top: 0; right: -150px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(255,107,59,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .mastermind-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) { .mastermind-layout { grid-template-columns: 1fr; gap: 48px; } }
+
+    .mastermind-body p { margin-bottom: 20px; }
+
+    .tracks-list {
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .track-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .track-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .track-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── EVENTS ── */
+    #events {
+      background: linear-gradient(180deg, #131313 0%, #0e0e0e 100%);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 56px;
+    }
+
+    @media (max-width: 768px) { .events-grid { grid-template-columns: 1fr; } }
+
+    .event-card {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .event-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+
+    .event-card-body {
+      padding: 28px 36px 36px;
+    }
+
+    .event-photo {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .event-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .event-card:hover .event-photo img {
+      transform: scale(1.04);
+    }
+
+    .event-type {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .event-name {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+      color: var(--white);
+    }
+
+    .event-date {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .event-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .event-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 300px;
+    }
+
+    .events-footer {
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .events-footer h3 { margin-bottom: 12px; }
+
+    /* ── MASTERMIND PHOTO ── */
+    .mastermind-photo {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      border-radius: 8px;
+    }
+
+    .mastermind-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── PHOTO STRIP ── */
+    #photo-strip {
+      padding: 0;
+      border-bottom: none;
+    }
+
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3px;
+      height: 340px;
+    }
+
+    @media (max-width: 768px) {
+      .photo-strip { grid-template-columns: 1fr 1fr; height: auto; }
+      .photo-strip img { height: 200px; }
+    }
+
+    .photo-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .photo-strip img:hover { transform: scale(1.02); }
+
+    .photo-strip-caption {
+      padding: 16px 40px;
+      text-align: right;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    /* ── CULTURE ── */
+    #culture {
+      background: #000000;
+      color: var(--white);
+      border-bottom: 1px solid #1c1c1c;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Radial glow at center-right */
+    #culture::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: 5%;
+      width: 560px; height: 560px;
+      background: radial-gradient(ellipse at center, rgba(255,107,59,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Subtle large-type watermark */
+    #culture::after {
+      content: '"';
+      position: absolute;
+      bottom: -60px; right: 40px;
+      font-size: 400px;
+      line-height: 1;
+      color: rgba(255,255,255,0.018);
+      font-family: Georgia, serif;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    #culture h2 { color: var(--white); position: relative; z-index: 1; }
+    #culture .section-label { color: var(--orange); }
+    #culture .container { position: relative; z-index: 1; }
+
+    .culture-body {
+      max-width: 700px;
+    }
+
+    .culture-body p {
+      color: #888;
+      font-size: 18px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .culture-body p:last-child { margin-bottom: 0; }
+
+    /* ── WHAT'S INCLUDED ── */
+    #included {
+      background: linear-gradient(180deg, #0e0e0e 0%, #131313 100%);
+    }
+
+    .included-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) { .included-layout { grid-template-columns: 1fr; gap: 48px; } }
+
+    .included-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .included-list li {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--dim);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .included-list li::before {
+      content: "→";
+      flex-shrink: 0;
+      font-size: 14px;
+      margin-top: 2px;
+      color: var(--orange);
+    }
+
+    .pricing-card {
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      padding: 48px 44px;
+      border-radius: 10px;
+      position: sticky;
+      top: 88px;
+    }
+
+    .price-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .price-number {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .price-cadence {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .price-note {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 36px;
+      border-left: 2px solid var(--orange);
+      padding-left: 16px;
+    }
+
+    /* ── LEADERSHIP ── */
+    #leadership {
+      background: linear-gradient(180deg, #141414 0%, #111111 100%);
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 56px;
+    }
+
+    @media (max-width: 900px) { .leadership-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .leader-card {
+      background: var(--bg-card);
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-align: center;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+
+    .leader-card:hover { border-color: var(--border-lt); }
+
+    .leader-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--border);
+      margin: 0 auto 20px;
+      overflow: hidden;
+    }
+
+    .leader-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .leader-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .leader-role {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Bio overlay on hover */
+    .leader-bio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 100%;
+      background: rgba(12,12,12,0.97);
+      border: 1px solid var(--border-lt);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: none;
+      border-radius: 8px;
+      z-index: 10;
+    }
+
+    .leader-card:hover .leader-bio-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .leader-bio-overlay .bio-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .leader-bio-overlay p {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--dim);
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      padding: 96px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 80px;
+      margin-top: 56px;
+    }
+
+    @media (max-width: 860px) { .faq-layout { grid-template-columns: 1fr; gap: 40px; } }
+
+    .faq-label-col h2 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--white);
+      position: sticky;
+      top: 100px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      transition: color 0.15s;
+    }
+
+    .faq-question:hover { color: var(--orange); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid var(--border-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--muted);
+      transition: transform 0.2s, border-color 0.2s;
+      line-height: 1;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 0 24px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--dim);
+      max-width: 680px;
+    }
+
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── APPLY ── */
+    #apply {
+      background-image:
+        linear-gradient(to bottom, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.72) 50%, rgba(0,0,0,0.90) 100%),
+        url('https://cdn.dynamitecircle.com/images/adbbb7380be83f6fdf0bfc9fff6cb3d1.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      color: var(--white);
+      text-align: center;
+      padding: 120px 0;
+      border-bottom: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #apply::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse at center, rgba(255,107,59,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    #apply .container { position: relative; z-index: 1; }
+    #apply h2 { color: var(--white); margin-bottom: 20px; }
+
+    #apply p {
+      color: #888;
+      font-size: 18px;
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.65;
+    }
+
+    .apply-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      display: inline-block;
+      padding: 18px 48px;
+      background: var(--orange);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border: 2px solid var(--orange);
+      border-radius: 300px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn-white:hover { background: transparent; color: var(--orange); }
+
+    .btn-ghost-white {
+      font-size: 15px;
+      color: #555;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+
+    .btn-ghost-white:hover { color: #999; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #282831;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .footer-top-bar img {
+      height: 40px;
+      width: auto;
+    }
+
+    .footer-login-btn {
+      display: inline-block;
+      padding: 11px 28px;
+      border: 1.5px solid var(--orange);
+      border-radius: 300px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .footer-login-btn:hover { background: var(--orange); color: var(--white); }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding: 56px 64px 200px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-tagline {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+      padding-right: 16px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #9a9aaa;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.15s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    /* Large decorative DC mark — bottom-left, large and partially clipped */
+    footer::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      left: -100px;
+      /* The source image is 1500x773 with the DC mark in the bottom-left quarter.
+         Scale up so the mark itself fills the corner prominently. */
+      width: 1100px;
+      height: 567px;
+      background-image: url('https://images.squarespace-cdn.com/content/v1/640f29bdee2a666b0a6379b1/09dc2d6a-8223-45d3-9dcb-85b83d79a8c4/logo_footer.png?format=1500w');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: bottom left;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 64px;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #666672;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 56px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a href="https://dynamitecircle.com" class="nav-logo">
+        <img src="//images.squarespace-cdn.com/content/v1/640f29bdee2a666b0a6379b1/53a489f8-d8d6-4c06-ab7c-73b70d3672c8/dc-short-trans-bg.png?format=300w" alt="Dynamite Circle" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://dynamitecircle.com/dc-black" class="active">DC Black</a></li>
+        <li><a href="https://dynamitecircle.com/dcbkk">DCBKK</a></li>
+        <li><a href="https://dynamitecircle.com/dc-events">Events</a></li>
+        <li><a href="https://dynamitecircle.com/news-and-blog">News &amp; Blog</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://dc.dynamitecircle.com" class="nav-login">Login</a>
+        <a href="https://dc.dynamitecircle.com/account/apply?utm_medium=dc-navbar&utm_source=dc-site&utm_campaign=dc-site" class="nav-cta">Apply</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">DC BLACK — Private Membership</span>
+        <h1>You've outgrown the room.</h1>
+        <p class="hero-sub">DC BLACK is a private membership for founders and operators who are ready to stop being the most experienced person in every conversation.</p>
+        <p class="hero-support">100+ members across 25+ industries. Average revenue: $4M. Largest over $50M. Built for founders moving from seven figures to eight — from operator to owner, from builder to leader.</p>
+        <div class="cta-group">
+          <a href="#apply" class="btn-primary">Apply to join →</a>
+          <span class="btn-ghost">Not sure if you qualify? Talk to us</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div id="stats">
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <span class="stat-number">100+</span>
+        <span class="stat-label">Members</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">$4M</span>
+        <span class="stat-label">Avg. Revenue</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">16</span>
+        <span class="stat-label">Avg. Team Size</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">25+</span>
+        <span class="stat-label">Industries</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">Global</span>
+        <span class="stat-label">Fully Distributed</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHO THIS IS FOR -->
+  <section id="who">
+    <div class="container">
+      <h2>Someone here has already solved your next problem.</h2>
+      <div class="two-col">
+        <div class="profile-card">
+          <span class="tag">Growth Mode</span>
+          <p>You've scaled past the point where hustle fixes things. The business needs real operations, real leadership, the next version of everything. You've been the most experienced person in every conversation for years and it's not working. You want peers who push back, not people who look to you for answers.</p>
+        </div>
+        <div class="profile-card">
+          <span class="tag">Being a small fish again</span>
+          <p>You're the best at what you do in your market. You've run out of people to learn from. The question isn't whether you're good enough — it's what comes after mastery. You want to be somewhere you're absorbing again, not always teaching.</p>
+        </div>
+        <div class="profile-card">
+          <span class="tag">Life is more than business</span>
+          <p>You've built something real and you're stepping back. The business is running. Now the harder question: What do you do with the time and the freedom? Who do you become after years of defining yourself by the company you built?</p>
+        </div>
+        <div class="profile-card">
+          <span class="tag">Exit Plans</span>
+          <p>You're growing through acquisition or preparing for a transaction. Deal flow, structure, timing, what the other side of an exit actually looks like — those conversations don't happen in many business communities. They happen here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBER VOICES -->
+  <section id="social-proof">
+    <div class="container">
+      <span class="section-label">Members</span>
+      <div class="proof-intro">
+        <h2>DC BLACK members are different than other founders.</h2>
+        <p>Most didn't follow the conventional path. They built profitable businesses without venture capital, without a fancy degree, and they built it... wherever they chose to be in the world. They're figuring out what comes after seven figures: how to step back, what to build next, how much is actually enough. That shared context — bootstrapped, global, lifestyle-first — makes the conversations here unlike anything you'll find.</p>
+      </div>
+
+      <div class="members-grid">
+
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="https://cdn.dynamitecircle.com/images/0896c2359e5983ed2433e4f61e70af89.webp" alt="Eugene Woo" />
+          </div>
+          <div class="member-name">Eugene Woo</div>
+          <div class="member-meta">Venngage · SaaS · $7M+ ARR · Toronto</div>
+          <p class="member-quote">"The caliber of founders here is unlike anything I've found elsewhere. Everyone's been through it — there's no posturing, just real conversation."</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="https://cdn.dynamitecircle.com/images/21f3d213acd74cab5db8e88eb428009a.jpg" alt="Øyvind Kvanes" />
+          </div>
+          <div class="member-name">Øyvind Kvanes</div>
+          <div class="member-meta">Firi · Crypto Exchange · $20M+ ARR · Manila</div>
+          <p class="member-quote">"I came for the network. I stayed because the mastermind conversations are actually useful — not just motivational fluff."</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="https://cdn.dynamitecircle.com/images/f7a9ecf32e813023fcb7d007b86c9437.png" alt="Laura Roeder" />
+          </div>
+          <div class="member-name">Laura Roeder</div>
+          <div class="member-meta">Paperbell · Coaching Software · USA</div>
+          <p class="member-quote">"DC Black brings together incredible founders who are all navigating similar problems. Different industries, same hard questions. That shared context is everything."</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="https://cdn.dynamitecircle.com/images/3b1177338e49de60f9dfa9252acdab46.jpg" alt="Justin Cooke" />
+          </div>
+          <div class="member-name">Justin Cooke</div>
+          <div class="member-meta">Empire Flippers · WebStreet · $450M+ transactions · Nomadic</div>
+          <p class="member-quote">"DC Black is where I bring the things I can't talk about publicly. The trust level is different here — it changes how honest you can actually be."</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="https://cdn.dynamitecircle.com/images/48d1b5e3570d9f0c311ea7440cdda370.jpg" alt="Amar Ghose" />
+          </div>
+          <div class="member-name">Amar Ghose</div>
+          <div class="member-meta">ZenMaid · SaaS · Full-time Traveler</div>
+          <p class="member-quote">"Love the smaller group — it's the first business community where I actually know everyone in the room and they know what I'm working through."</p>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo">
+            <img src="https://cdn.dynamitecircle.com/images/4cf8042a5164e9004b47bc23760285ec.jpg" alt="Tommy Griffith" />
+          </div>
+          <div class="member-name">Tommy Griffith</div>
+          <div class="member-meta">ClickMinded · 50,000+ customers · Remote</div>
+          <p class="member-quote">"I got a diverse range of perspectives on my current challenges from people who've actually been there. That kind of feedback is rare."</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MASTERMIND -->
+  <section id="mastermind">
+    <div class="container">
+      <span class="section-label">The Core</span>
+      <div class="mastermind-layout">
+        <div class="mastermind-body">
+          <h2>Your core group. Five to seven people. Every month. High-trust.</h2>
+          <p>The foundation of DC BLACK is a small, carefully matched mastermind. Five to seven members, grouped by industry, stage, and multiple other factors based on your goals. You meet monthly for two hours with the group led by a facilitator.</p>
+          <p>Each session runs a hot seat where members bring their current challenge or learning, the group acts as a peer advisory board. The feedback is direct and experienced — from people who are taking an active role in understanding you and your business. Between calls, the group stays connected on chat and email.</p>
+          <p>One month someone's weighing a PE firm offer. The next, they're figuring out how to step back while keeping equity. The month after, it's an operations manager who's become the bottleneck, or a partner dynamic that's quietly breaking things. We all work together and share resources to overcome our biggest challenges together.</p>
+        </div>
+        <div>
+          <div class="mastermind-photo">
+            <img src="https://cdn.dynamitecircle.com/images/b98eb960481c3f08718a774520f3ed94.jpg" alt="DC BLACK mastermind session, Phuket 2025" />
+          </div>
+          <p style="font-size: 15px; color: #888; margin-bottom: 24px; line-height: 1.5;">We offer a range of mastermind themes and are adding more as members join.</p>
+          <div class="tracks-list">
+            <div class="track-item">
+              <div class="track-name">Business</div>
+              <div class="track-desc">Grouped by size and industry, focused on growth, operations, and scale.</div>
+            </div>
+            <div class="track-item">
+              <div class="track-name">M&A</div>
+              <div class="track-desc">For members actively acquiring businesses or preparing to exit.</div>
+            </div>
+            <div class="track-item">
+              <div class="track-name">Lifestyle</div>
+              <div class="track-desc">Personal growth, next chapter, accountability beyond the business.</div>
+            </div>
+            <div class="track-item">
+              <div class="track-name">Team</div>
+              <div class="track-desc">For the key people on your team — ops, marketing, EA — who'd benefit from the same kind of peer group. Separate membership, different price.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="container">
+      <span class="section-label">Events</span>
+      <h2>Intimate gatherings. Real connections. Wherever you are in the world.</h2>
+      <p style="max-width: 600px;">DC BLACK runs its own small events — separate from the main DC calendar, separate from the crowds. Bangkok, Barcelona, New York, Taipei. Twenty-five to thirty-five people. Small enough that you know everyone by the end of day one.</p>
+
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-badge">DC BLACK Only</div>
+          <div class="event-photo">
+            <img src="https://cdn.dynamitecircle.com/images/2a6af52082b66b8bd6739efd74335aff.jpg" alt="Barcelona — DC BLACK 2024" />
+          </div>
+          <div class="event-card-body">
+            <div class="event-type">DC BLACK-only event</div>
+            <div class="event-name">Barcelona</div>
+            <div class="event-date">July 2026</div>
+            <p class="event-desc">Three days in summer. Workshops, peer sessions, shared meals. Capped at 35.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-badge">DC BLACK Only</div>
+          <div class="event-photo">
+            <img src="https://cdn.dynamitecircle.com/images/67346fc96d0d02016d083cfa82b38079.jpg" alt="New York City — DC BLACK 2023" />
+          </div>
+          <div class="event-card-body">
+            <div class="event-type">DC BLACK-only event</div>
+            <div class="event-name">New York City</div>
+            <div class="event-date">Fall 2026</div>
+            <p class="event-desc">End-of-year gathering. Details released to members first.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-photo">
+            <img src="https://cdn.dynamitecircle.com/images/b98eb960481c3f08718a774520f3ed94.jpg" alt="DC BLACK Day — members in discussion" />
+          </div>
+          <div class="event-card-body">
+            <div class="event-type">DC BLACK members go deeper</div>
+            <div class="event-name">DC Mexico</div>
+            <div class="event-date">May 2026</div>
+            <p class="event-desc">Private day at the center of the conference — separate sessions, small-group masterminds with members you haven't met, a private lunch, and airport transfers.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-photo">
+            <img src="https://cdn.dynamitecircle.com/images/9f2cef18b019fddedebbdcf620f69d9a.jpg" alt="DC BLACK Barcelona 2025" />
+          </div>
+          <div class="event-card-body">
+            <div class="event-type">DC BLACK members go deeper</div>
+            <div class="event-name">DC Bangkok</div>
+            <div class="event-date">November 2026</div>
+            <p class="event-desc">The largest DC event of the year — 300+ founders from around the world. DC BLACK members have their own mastermind day running alongside the main programming.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="events-footer">
+        <h3>The membership travels with you.</h3>
+        <p style="max-width: 580px;">DC has active member communities in cities all over the world. Tell the team where you're headed — Tokyo, Merida, Ho Chi Minh City, wherever — and they'll connect you with the right people before you land.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <section id="photo-strip">
+    <div class="photo-strip">
+      <img src="https://cdn.dynamitecircle.com/images/5879e120cf8efc51227e701c1d5d7252.jpg" alt="DC BLACK Barcelona" />
+      <img src="https://cdn.dynamitecircle.com/images/b891d0bafa6663ac52e57360e31cc461.jpg" alt="DC BLACK Phuket" />
+      <img src="https://cdn.dynamitecircle.com/images/f100f323528137401a2923557b085743.jpg" alt="DC BLACK New York" />
+      <img src="https://cdn.dynamitecircle.com/images/ed6077c0f14a0b279275c0bc7dd42cf8.jpg" alt="DC BLACK Phuket closing dinner" />
+    </div>
+    <div class="photo-strip-caption">Barcelona · New York · Phuket · and counting</div>
+  </section>
+
+  <!-- CULTURE -->
+  <section id="culture">
+    <div class="container">
+      <span class="section-label">The Rule</span>
+      <div class="culture-body">
+        <h2>One rule makes everything else possible.</h2>
+        <p>No pitching. No selling to other members. No sliding into someone's DMs with an offer.</p>
+        <p>It sounds simple, but it changes everything. When nobody has an agenda, the feedback is honest. When you bring your hardest problem to the group, you get direct answers — not a soft lead-in to a sales conversation. Members show up to each other's hot seats and walk away with as much value as the person in the chair.</p>
+        <p>DC BLACK works because of what it isn't. It's not a network event. It's not a Slack group. It's not another place to build an audience. It's a small, global community of founders who actually know each other — and show up for each other the same way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section id="included">
+    <div class="container">
+      <span class="section-label">Membership</span>
+      <div class="included-layout">
+        <div>
+          <h2>The full membership.</h2>
+          <ul class="included-list">
+            <li>Monthly mastermind — 5–7 members, facilitator, hot-seat format</li>
+            <li>Matched by track: business, M&A, lifestyle, or team</li>
+            <li>DC BLACK-only events — Barcelona and NYC <em>(typically $1,000–$1,300 per event)</em></li>
+            <li>Private DC BLACK Day at DC Mexico and DC Bangkok — separate sessions, private lunch, airport transfers</li>
+            <li>Private DC BLACK group chat</li>
+            <li>Personal onboarding — placed by hand, not dropped into a list</li>
+            <li>Full DC membership — access to 1,000+ founders, the locator, local meetups globally</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pricing-card">
+            <div class="price-label">Annual membership</div>
+            <div class="price-number">$5,500</div>
+            <div class="price-cadence">per year · replaces standard DC membership</div>
+            <p class="price-note">Priced to work for a serious business, not to maximize our margin. The model runs on long-term relationships — members who stay because the people around them keep raising the bar.</p>
+            <a href="#apply" class="btn-primary" style="width: 100%; text-align: center; display: block;">Apply to join →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="container">
+      <span class="section-label">The Team</span>
+      <h2>Meet the DC Black Team</h2>
+
+      <div class="leadership-grid">
+
+        <div class="leader-card">
+          <div class="leader-photo"><img src="https://cdn.dynamitecircle.com/profiles/94ecf409-fdf4-46fe-ae72-056948dac50e.jpg" alt="Ian Schoen" /></div>
+          <div class="leader-name">Ian</div>
+          <div class="leader-role">Co-founder</div>
+          <div class="leader-bio-overlay">
+            <div class="bio-name">Ian Schoen</div>
+            <p>Ian is the co-host of the Tropical MBA podcast and co-founder of the Dynamite Circle. Since 2011 he has had a front row seat to many of the world's most successful online businesses through the DC. In 2023 he launched DC BLACK. Previously, he founded and exited an e-commerce and product manufacturing company.</p>
+          </div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"><img src="https://cdn.dynamitecircle.com/profiles/69d280a9-0bf6-4803-a108-7e58d6de39d0.jpg" alt="Clare Jacky" /></div>
+          <div class="leader-name">Clare</div>
+          <div class="leader-role">Facilitator</div>
+          <div class="leader-bio-overlay">
+            <div class="bio-name">Clare Jacky</div>
+            <p>Clare is an executive coach with hands-on experience developing and deploying business systems at scale. As Chief of Staff at Drip, Clare onboarded over 100 employees and led the restructuring of the engineering organization. She also built Rally's foundational strategic planning process.</p>
+          </div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"><img src="https://images.squarespace-cdn.com/content/v1/640f29bdee2a666b0a6379b1/8f3a5193-ccfd-483b-b61b-47325cefa1d9/Richard-Jalichandra-performance-marketing-2022.jpg" alt="Richard Jalichandra" /></div>
+          <div class="leader-name">Richard</div>
+          <div class="leader-role">Facilitator</div>
+          <div class="leader-bio-overlay">
+            <div class="bio-name">Richard Jalichandra</div>
+            <p>Richard is a seasoned technology executive with experience scaling companies in ad tech, e-commerce, mobile and SaaS. Throughout his career as a CEO, he has led teams worldwide that have generated billions in revenue. Previously Executive Chairman of Clickbank, CEO of bodybuilding.com, Mapmyfitness, and Technorati.</p>
+          </div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"><img src="https://images.squarespace-cdn.com/content/v1/640f29bdee2a666b0a6379b1/45bd395a-a113-419c-a643-e8f5a697a4e5/MarkBrenwall.jpg" alt="Mark Brenwall" /></div>
+          <div class="leader-name">Mark</div>
+          <div class="leader-role">Facilitator</div>
+          <div class="leader-bio-overlay">
+            <div class="bio-name">Mark Brenwall</div>
+            <p>Mark has been a DC member since 2013. He built a brand in the CrossFit space, going from zero to 7 figures in profit in under 7 years and selling for a mid-7-figure exit in 2021. Since exiting he's focused on investing in real estate and cash-flowing businesses.</p>
+          </div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"><img src="https://images.squarespace-cdn.com/content/v1/640f29bdee2a666b0a6379b1/c99aa775-e80a-4dbe-9dd4-4aba7abf3e01/chris.jpg" alt="Chris Kobran" /></div>
+          <div class="leader-name">Chris</div>
+          <div class="leader-role">Facilitator</div>
+          <div class="leader-bio-overlay">
+            <div class="bio-name">Chris Kobran</div>
+            <p>Chris is a seasoned executive with more than two decades of leadership experience in gaming, media, music, B2B technology, transportation and sports. He founded The Headwall in Boston and led top clients including Harvard Business Review and Live Nation.</p>
+          </div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"></div>
+          <div class="leader-name">Chris</div>
+          <div class="leader-role">Facilitator</div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"></div>
+          <div class="leader-name">Dan</div>
+          <div class="leader-role">Co-founder</div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"></div>
+          <div class="leader-name">Alex</div>
+          <div class="leader-role">Community Manager</div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"></div>
+          <div class="leader-name">Beatriz</div>
+          <div class="leader-role">Community</div>
+        </div>
+
+        <div class="leader-card">
+          <div class="leader-photo"></div>
+          <div class="leader-name">Lina</div>
+          <div class="leader-role">Events Manager</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY -->
+  <section id="apply">
+    <div class="container">
+      <h2>This is where you stop being the most experienced person in every conversation and find your people.</h2>
+      <p>DC BLACK is application-only. We look for founders running serious, established businesses doing at least $1M in revenue. If you still aren't sure it's for you, reach out to talk to us and meet current members.</p>
+      <div class="apply-ctas">
+        <a href="#" class="btn-white">Apply to join →</a>
+        <span class="btn-ghost-white">Not sure if you qualify? Send us a note</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <span class="section-label">FAQs</span>
+      <div class="faq-layout">
+        <div class="faq-label-col">
+          <h2>Common questions about DC Black.</h2>
+        </div>
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              What are the requirements for DC Black membership?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Minimum of $1,000,000 in annual business revenue (we will also consider recent large exits, raised rounds, or exceptional SDE #'s). For the right founders, we can return your investment many times over, with just a few hours each month dedicated to the community, conversations, events, and mastermind calls. If you're running a 7- or 8-figure business, joining DC Black is your next growth strategy.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              Why is the bar to entry set at $1M per year?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">DC Black was specifically designed to provide a community for founders who've experienced a higher level of growth. We understand that with more success comes different problems, different challenges, and different priorities. The only way to tackle those unique challenges is by forming meaningful relationships with other founders at that same level who understand where you're coming from and where you're going. $1 million is a natural number in our community, and an aspirational figure to founders who are hoping to join in the future.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              My business is on the higher end of DC Black's revenue threshold. Will this group still benefit me?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Yes! We'll match you to a mastermind with other founders at your level of growth so that you can connect with people who understand your unique journey. Members on the higher end still benefit from the conversations and in-person connections in DC Black. There's always something new to learn, and our members have a wealth of expertise and knowledge in a variety of industries, business tools, software, strategies, business tactics, and more.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              What does the application process look like?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Submit an application form, where you'll answer some questions about your business, your goals for the next 12 months, and who you are as an entrepreneur. Then you'll book a slot for a discovery call with Ian, our founder. If you qualify, we'll confirm the call time. We'll use the call to verify that you're the right fit and finalize your approval. We'll also ask for a signed P&L to ensure you meet the revenue requirement. Once approved, a facilitator will personally onboard you into the community and connect you with other members and resources that are best aligned with your goals.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              How is DC Black different from other high-level business communities?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Other communities limit their members by geography, industry, and even personal factors like age. DC Black is a global community of multicultural founders with interesting stories and businesses. We vet each and every application to not only look for fit in terms of revenue level, but also culture fit. No "gurus", flashy personalities, or vying to impress each other. Just genuine, helpful people who are serious about business — and also enjoy life outside of business through travel, lifestyle, and a slew of unique (and sometimes quirky) interests.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              How is DC Black different from Dynamite Circle? What is included in my membership?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">DC Black is an extension of your Dynamite Circle experience. You get the same events, network, connections, and community, but at an elevated level to match your goals and needs. DC Black members get access to all the features of Dynamite Circle, PLUS: paid DC Black-only events, VIP access at all-DC events in Mexico and Bangkok, monthly masterminds facilitated by experienced mentors, a DC Black-only WhatsApp group and private forum, and 1:1 coaching 3 times a year.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              What are DC Black events like? What's the cost?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">DC Black meets up three times a year in unique global locations for exclusive conversations, workshopping, and fun local activities. For 2025, we'll be connecting in Phuket (Q1), Barcelona (Q3), and New York City (Q4). At our all-DC events in Mexico (May) and Bangkok (October), we offer VIP DC Black programming and mastermind sessions. While members pay separately for events, we keep fees minimal by organizing them at cost — exceptional experiences at a fraction of what similar communities charge.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              What are masterminds? Who will be in my mastermind group?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Masterminds are monthly calls (2–2.5 hours long) led by an experienced facilitator. You'll be joined by 4–6 other DC Black members, grouped by specific interests and industries. Each participant has the chance to deliver a "Hot Seat" presentation once every third call, followed by feedback and challenging questions from the other participants and facilitator. This format fosters structured and targeted conversations to help you solve problems and make decisions faster.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              Can I join without being added to a mastermind?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">While masterminds can be an extremely valuable use of your time, they are not mandatory as we recognize they don't fit everybody's schedule or lifestyle. You can opt in for a membership without a mastermind.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              How much is an annual membership in DC Black?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">As of January 1, 2025, the annual membership is $5,500 with mastermind, or $4,500 without.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.closest('.faq-item').classList.toggle('open')">
+              Can my business partner join DC Black?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Absolutely! Co-founders are eligible for a $1,000 discount if they join at the same time. If they join later, they will pay the current membership rate. Please note that all co-founders must go through the same application and vetting process and pay membership fees as individuals.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top-bar">
+      <img src="//images.squarespace-cdn.com/content/v1/640f29bdee2a666b0a6379b1/53a489f8-d8d6-4c06-ab7c-73b70d3672c8/dc-short-trans-bg.png?format=300w" alt="Dynamite Circle" />
+      <a href="https://dc.dynamitecircle.com/" class="footer-login-btn">Members Login</a>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-tagline">It started because we wanted to meet entrepreneurs like us.</div>
+
+      <div class="footer-col">
+        <h4>Main Pages</h4>
+        <a href="https://dynamitecircle.com/dc-black">DC BLACK</a>
+        <a href="https://dynamitecircle.com/news-and-blog">News &amp; Blog</a>
+        <a href="https://dynamitecircle.com/dcbkk">DCBKK</a>
+        <a href="https://dynamitecircle.com/the-story">About</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community</h4>
+        <a href="https://dynamitecircle.com/dc-events">Upcoming Events</a>
+        <a href="https://dynamitecircle.com/dcbkk">DCBKK</a>
+        <a href="https://dc.dynamitecircle.com/account/apply">Join DC</a>
+        <a href="https://dynamitecircle.com/dc-events">All Events</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Dynamite brands</h4>
+        <a href="https://dynamitecircle.com">Dynamite Circle</a>
+        <a href="https://dynamitecircle.com/dc-black">DC Black</a>
+        <a href="https://tropicalmba.com" target="_blank" rel="noopener">Tropical MBA</a>
+        <a href="https://dynamitejobs.com" target="_blank" rel="noopener">Dynamite Jobs</a>
+        <a href="https://remotefirstrecruiting.com" target="_blank" rel="noopener">Remote First Recruiting</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Other &amp; Legal</h4>
+        <a href="https://dynamitecircle.com/community-code-of-conduct">Community Code of Conduct</a>
+        <a href="https://dynamitecircle.com/privacy-policy">Privacy Policy</a>
+        <a href="https://dynamitecircle.com/terms-of-service">Terms of Service</a>
+        <a href="https://dynamitecircle.com/contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© Dynamite Ventures, Inc. All rights reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
