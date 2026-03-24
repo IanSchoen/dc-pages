@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dynamite Circle — The place where global founders find their people</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -197,7 +196,18 @@
 <nav>
   <div class="container">
     <a href="https://dynamitecircle.com" class="nav-logo">Dynamite Circle</a>
-    <a href="https://dynamitecircle.com/account/apply" class="nav-cta">See if you qualify</a>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button id="edit-btn" onclick="enableEditMode()" style="display:flex;align-items:center;gap:7px;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:8px 16px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#fff;">
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M9.5 1.5l3 3-8 8H1.5v-3l8-8z" stroke="#FF4921" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        Edit text
+      </button>
+      <div id="edit-bar" style="display:none;align-items:center;gap:8px;">
+        <span style="font-size:11px;color:#555;">Click any text to edit</span>
+        <button onclick="saveEdits()" style="background:#FF4921;color:#fff;border:none;border-radius:7px;padding:7px 16px;font-size:12px;font-weight:700;font-family:'Poppins',sans-serif;cursor:pointer;">Save &amp; download</button>
+        <button onclick="discardEdits()" style="background:transparent;color:#666;border:1px solid #333;border-radius:7px;padding:7px 12px;font-size:12px;font-weight:600;font-family:'Poppins',sans-serif;cursor:pointer;">Discard</button>
+      </div>
+      <a href="https://dynamitecircle.com/account/apply" class="nav-cta">See if you qualify</a>
+    </div>
   </div>
 </nav>
 
@@ -231,8 +241,8 @@
       <div>
         <div class="form-card">
           <div id="fc1">
-            <div class="form-card-title">Find out if you qualify</div>
-            <div class="form-card-sub">Leave your details and we'll reach out about membership.</div>
+            <div class="form-card-title">Get in touch.</div>
+            <div class="form-card-sub">Leave your details and we'll reach out to learn more about your business.</div>
             <form onsubmit="ok('fc1','fs1'); return false;">
               <div class="form-group">
                 <label>Full name</label>
@@ -305,7 +315,7 @@
           <div class="sb-hr"></div>
           <div class="sb-section">
             <div class="sb-label">Channels</div>
-            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> SaaS & Tech <span class="sb-badge">31</span></div>
+            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> SaaS &amp; Tech <span class="sb-badge">31</span></div>
             <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> Agency Owners</div>
             <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> AI</div>
             <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> E-commerce</div>
@@ -345,7 +355,7 @@
               </div>
             </div>
 
-            <!-- REAL DISCUSSION THREADS -->
+            <!-- DISCUSSION THREADS -->
             <div class="thread hot">
               <div class="th-av" style="background:#1a2a1a;">🌿</div>
               <div class="th-body">
@@ -387,7 +397,7 @@
               </div>
             </div>
             <div class="thread">
-              <div class="th-av" style="background:#1a2a2a;">🌎</div>
+              <div class="th-av" style="background:#1a2a2a;">🌍</div>
               <div class="th-body">
                 <div class="th-top"><span class="th-who">Member · Info products · 🇨🇦</span><span class="th-when">Yesterday</span></div>
                 <div class="th-title">Setting up a company in Estonia — tips from people who've done it?</div>
@@ -410,14 +420,14 @@
     <h2 class="section-title">1,000+ entrepreneurs. 66 countries. Real businesses.</h2>
     <p class="section-sub">The DC requires $100K+ annual revenue. These are people who have built something real — and want to be around others who have too.</p>
     <div class="who-grid">
-      <div class="who-card"><div class="who-industry">SaaS & Tech</div><div class="who-count">133 members</div><div class="who-bar"><div class="who-fill" style="width:100%"></div></div></div>
-      <div class="who-card"><div class="who-industry">Professional Services & Consulting</div><div class="who-count">122 members</div><div class="who-bar"><div class="who-fill" style="width:92%"></div></div></div>
+      <div class="who-card"><div class="who-industry">SaaS &amp; Tech</div><div class="who-count">133 members</div><div class="who-bar"><div class="who-fill" style="width:100%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Professional Services &amp; Consulting</div><div class="who-count">122 members</div><div class="who-bar"><div class="who-fill" style="width:92%"></div></div></div>
       <div class="who-card"><div class="who-industry">Marketing Agency</div><div class="who-count">111 members</div><div class="who-bar"><div class="who-fill" style="width:83%"></div></div></div>
-      <div class="who-card"><div class="who-industry">Ecommerce & Amazon</div><div class="who-count">76 members</div><div class="who-bar"><div class="who-fill" style="width:57%"></div></div></div>
-      <div class="who-card"><div class="who-industry">Courses & Info Products</div><div class="who-count">76 members</div><div class="who-bar"><div class="who-fill" style="width:57%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Ecommerce &amp; Amazon</div><div class="who-count">76 members</div><div class="who-bar"><div class="who-fill" style="width:57%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Courses &amp; Info Products</div><div class="who-count">76 members</div><div class="who-bar"><div class="who-fill" style="width:57%"></div></div></div>
       <div class="who-card"><div class="who-industry">Productized Services</div><div class="who-count">48 members</div><div class="who-bar"><div class="who-fill" style="width:36%"></div></div></div>
-      <div class="who-card"><div class="who-industry">Content & Affiliate</div><div class="who-count">32 members</div><div class="who-bar"><div class="who-fill" style="width:24%"></div></div></div>
-      <div class="who-card"><div class="who-industry">Real Estate & Investing</div><div class="who-count">12 members</div><div class="who-bar"><div class="who-fill" style="width:9%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Content &amp; Affiliate</div><div class="who-count">32 members</div><div class="who-bar"><div class="who-fill" style="width:24%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Real Estate &amp; Investing</div><div class="who-count">12 members</div><div class="who-bar"><div class="who-fill" style="width:9%"></div></div></div>
     </div>
   </div>
 </section>
@@ -472,7 +482,7 @@
         <div class="get-desc">Get matched into a small group of 4–6 peers at your revenue stage. Regular calls, real accountability, specific to your business situation.</div>
       </div>
       <div class="get-cell">
-        <div class="get-icon">🌍</div>
+        <div class="get-icon">🌏</div>
         <div class="get-title">Global events</div>
         <div class="get-desc">DCBKK (Bangkok), DC Mexico, DC Week, and local Juntos every year. In 25 years of business, members call DCBKK the best event they've ever attended.</div>
       </div>
@@ -571,7 +581,7 @@
     document.getElementById(successId).style.display = 'block';
   }
 
-  // ── EDIT MODE ──────────────────────────────────────────────────────────────
+  // ── EDIT MODE ────────────────────────────────────────────────────────────────
   const EDITABLE = [
     'h1','h2','h3',
     '.hero-sub',
@@ -580,7 +590,6 @@
     '.section-title',
     '.form-card-title','.form-card-sub',
     '.hero-proof-num','.hero-proof-label',
-    '.hero-proof-item',
     '.testi-quote','.testi-name','.testi-biz',
     '.get-title','.get-desc',
     '.who-industry','.who-count',
@@ -603,7 +612,6 @@
     editMode = true;
     EDITABLE.forEach(sel => {
       document.querySelectorAll(sel).forEach(el => {
-        // skip elements inside forms that are inputs/buttons by type
         if (el.tagName === 'BUTTON' || el.tagName === 'INPUT' || el.tagName === 'SELECT') return;
         el.contentEditable = 'true';
         el.dataset.original = el.innerHTML;
@@ -631,7 +639,6 @@
   }
 
   function saveEdits() {
-    // Disable edit mode visuals before saving
     EDITABLE.forEach(sel => {
       document.querySelectorAll(sel).forEach(el => {
         el.contentEditable = 'false';
@@ -639,15 +646,15 @@
         el.style.cursor = '';
       });
     });
-    // Remove the edit UI from the saved HTML
+    // Set correct initial state for saved file: btn visible, bar hidden
     const bar = document.getElementById('edit-bar');
     const btn = document.getElementById('edit-btn');
     bar.style.display = 'none';
-    btn.style.display = 'none';
+    btn.style.display = 'flex';
 
     const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
 
-    // Restore UI
+    // Restore actual current UI state
     bar.style.display = editMode ? 'flex' : 'none';
     btn.style.display = editMode ? 'none' : 'flex';
     if (editMode) {
@@ -681,43 +688,4 @@
   }
 </script>
 
-<!-- EDIT BUTTON (always visible, bottom-right) -->
-<div id="edit-btn" onclick="enableEditMode()" style="
-  position: fixed; bottom: 28px; right: 28px; z-index: 99999;
-  display: flex; align-items: center; gap: 8px;
-  background: #1a1a1a; border: 1px solid #333; border-radius: 10px;
-  padding: 11px 18px; cursor: pointer; font-family: 'Poppins', sans-serif;
-  font-size: 13px; font-weight: 600; color: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-  transition: border-color 0.15s;">
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9.5 1.5l3 3-8 8H1.5v-3l8-8z" stroke="#FF4921" stroke-width="1.4" stroke-linejoin="round"/>
-  </svg>
-  Edit text
-</div>
-
-<!-- EDIT TOOLBAR (shown when editing) -->
-<div id="edit-bar" style="
-  display: none; position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
-  z-index: 99999; align-items: center; gap: 10px;
-  background: #1a1a1a; border: 1px solid #333; border-radius: 12px;
-  padding: 12px 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-  font-family: 'Poppins', sans-serif; font-size: 13px; color: #888;">
-  <span style="color:#555;">Click any text to edit</span>
-  <div style="width:1px;height:20px;background:#333;margin:0 4px;"></div>
-  <button onclick="saveEdits()" style="
-    background: #FF4921; color: #fff; border: none; border-radius: 7px;
-    padding: 8px 18px; font-size: 13px; font-weight: 700;
-    font-family: 'Poppins', sans-serif; cursor: pointer;">
-    Save &amp; download
-  </button>
-  <button onclick="discardEdits()" style="
-    background: transparent; color: #666; border: 1px solid #333; border-radius: 7px;
-    padding: 8px 14px; font-size: 13px; font-weight: 600;
-    font-family: 'Poppins', sans-serif; cursor: pointer;">
-    Discard
-  </button>
-</div>
-
-</body>
-</html>
+</body></html>
