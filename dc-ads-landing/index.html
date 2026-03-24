@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamite Circle — The place where global founders find their people</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0c0c0c; --bg-raised: #141414; --bg-card: #191919;
+    --white: #ffffff; --orange: #FF4921;
+    --border: #282828; --border-lt: #333333;
+    --muted: #888888; --dim: #bbbbbb;
+    --font: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  body { font-family: var(--font); background: var(--bg); color: var(--white); -webkit-font-smoothing: antialiased; }
+  body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 250px 250px; }
+  body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 9999; background: linear-gradient(90deg, transparent 0%, var(--orange) 30%, var(--orange) 70%, transparent 100%); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  /* NAV */
+  nav { position: sticky; top: 2px; z-index: 100; background: rgba(12,12,12,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; }
+  nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .nav-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-cta { display: inline-block; padding: 9px 22px; background: var(--orange); color: var(--white); font-size: 13px; font-weight: 600; text-decoration: none; border: 2px solid var(--orange); border-radius: 300px; transition: background 0.15s, color 0.15s; }
+  .nav-cta:hover { background: transparent; color: var(--orange); }
+
+  /* HERO */
+  .hero { padding: 72px 0 80px; border-bottom: 1px solid var(--border); }
+  .hero-inner { display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); border: 1.5px solid rgba(255,73,33,0.35); padding: 5px 14px; border-radius: 300px; margin-bottom: 24px; }
+  .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .hero h1 { font-size: clamp(30px, 3.8vw, 52px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--orange); }
+  .hero-sub { font-size: 16px; color: var(--dim); line-height: 1.75; max-width: 500px; margin-bottom: 36px; }
+  .hero-proof { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .hero-proof-item { flex: 1; padding: 16px 20px; border-right: 1px solid var(--border); }
+  .hero-proof-item:last-child { border-right: none; }
+  .hero-proof-num { font-size: 20px; font-weight: 700; color: var(--white); }
+  .hero-proof-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+  /* FORM */
+  .form-card { background: var(--bg-card); border: 1px solid var(--border-lt); border-radius: 16px; padding: 32px; }
+  .form-card-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .form-card-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; line-height: 1.5; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+  .form-group input, .form-group select {
+    width: 100%; background: var(--bg-raised); border: 1px solid var(--border-lt); border-radius: 8px;
+    padding: 11px 14px; font-size: 14px; font-family: var(--font); color: var(--white);
+    outline: none; transition: border-color 0.15s; -webkit-appearance: none; appearance: none;
+  }
+  .form-group input::placeholder { color: #444; }
+  .form-group input:focus, .form-group select:focus { border-color: var(--orange); }
+  .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+  .form-group select option { background: #1a1a1a; }
+  .form-optional { font-size: 10px; color: #444; font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 5px; }
+  .form-submit { width: 100%; padding: 14px; background: var(--orange); color: var(--white); font-size: 15px; font-weight: 700; font-family: var(--font); border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.15s; margin-top: 6px; }
+  .form-submit:hover { opacity: 0.88; }
+  .form-fine { font-size: 11px; color: #444; text-align: center; margin-top: 12px; }
+  .form-success { display: none; text-align: center; padding: 36px 16px; }
+  .form-success-check { width: 48px; height: 48px; background: rgba(255,73,33,0.1); border: 1px solid rgba(255,73,33,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 20px; }
+  .form-success h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .form-success p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* STATS BAR */
+  .stats-bar { background: var(--bg-raised); border-bottom: 1px solid var(--border); padding: 20px 0; }
+  .stats-bar-inner { display: flex; align-items: center; gap: 0; }
+  .stat-item { flex: 1; text-align: center; border-right: 1px solid var(--border); padding: 8px 0; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 22px; font-weight: 700; }
+  .stat-num span { color: var(--orange); }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+  /* PLATFORM PREVIEW */
+  .preview-section { padding: 80px 0; background: var(--bg-raised); border-bottom: 1px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+  .section-title { font-size: clamp(22px, 2.8vw, 36px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .section-sub { font-size: 15px; color: var(--muted); max-width: 540px; line-height: 1.7; margin-bottom: 48px; }
+
+  .browser { border: 1px solid var(--border-lt); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.7); }
+  .browser-bar { background: #1c1c1c; padding: 11px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); }
+  .browser-dots { display: flex; gap: 6px; }
+  .browser-dot { width: 11px; height: 11px; border-radius: 50%; }
+  .browser-dot.red { background: #ff5f57; } .browser-dot.yellow { background: #febc2e; } .browser-dot.green { background: #28c840; }
+  .browser-url { flex: 1; background: #252525; border-radius: 5px; padding: 5px 13px; font-size: 12px; color: #555; }
+
+  .app-layout { display: grid; grid-template-columns: 220px 1fr; }
+  .sidebar { background: #0e0e0e; border-right: 1px solid var(--border); padding: 18px 0; }
+  .sb-section { padding: 0 14px; margin-bottom: 22px; }
+  .sb-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #3a3a3a; margin-bottom: 8px; padding: 0 8px; }
+  .sb-item { display: flex; align-items: center; gap: 9px; padding: 7px 8px; border-radius: 6px; font-size: 13px; color: #555; }
+  .sb-item.on { background: rgba(255,73,33,0.1); color: var(--white); }
+  .sb-icon { width: 15px; height: 15px; opacity: 0.4; flex-shrink: 0; }
+  .sb-item.on .sb-icon { opacity: 1; }
+  .sb-badge { margin-left: auto; font-size: 10px; font-weight: 700; background: var(--orange); color: #fff; padding: 2px 6px; border-radius: 300px; }
+  .sb-hr { height: 1px; background: var(--border); margin: 6px 14px 14px; }
+
+  .app-main { display: flex; flex-direction: column; }
+  .app-bar { padding: 15px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg-card); }
+  .app-bar-title { font-size: 14px; font-weight: 600; }
+  .app-bar-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .app-feed { max-height: 520px; overflow-y: auto; }
+
+  .online-strip { padding: 18px 22px; border-bottom: 1px solid var(--border); background: rgba(255,73,33,0.02); }
+  .online-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 13px; }
+  .online-row { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 2px; }
+  .mc { flex-shrink: 0; width: 120px; background: var(--bg-raised); border: 1px solid var(--border); border-radius: 9px; padding: 13px 10px; text-align: center; }
+  .mc-av { width: 40px; height: 40px; border-radius: 50%; margin: 0 auto 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .mc-role { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+  .mc-loc { font-size: 10px; color: #3a3a3a; }
+
+  .thread { padding: 16px 22px; border-bottom: 1px solid var(--border); display: flex; gap: 13px; }
+  .thread.hot { background: rgba(255,73,33,0.025); }
+  .th-av { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+  .th-body { flex: 1; min-width: 0; }
+  .th-top { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+  .th-who { font-size: 11px; font-weight: 600; color: #555; }
+  .th-when { font-size: 11px; color: #333; margin-left: auto; flex-shrink: 0; }
+  .th-title { font-size: 14px; font-weight: 600; color: var(--dim); margin-bottom: 3px; }
+  .thread.hot .th-title { color: var(--white); }
+  .th-preview { font-size: 12px; color: #484848; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .thread.hot .th-preview { color: #666; }
+  .th-tags { display: flex; gap: 5px; margin-top: 7px; }
+  .th-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; border-radius: 300px; border: 1px solid var(--border); color: #484848; }
+  .th-tag.o { border-color: rgba(255,73,33,0.25); color: var(--orange); }
+  .th-replies { font-size: 11px; color: #333; margin-top: 5px; }
+
+  /* WHO'S INSIDE */
+  .who-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 40px; }
+  .who-card { background: var(--bg-raised); border: 1px solid var(--border); border-radius: 10px; padding: 20px 18px; }
+  .who-industry { font-size: 13px; font-weight: 600; color: var(--dim); margin-bottom: 6px; }
+  .who-count { font-size: 11px; color: #444; margin-bottom: 10px; }
+  .who-bar { height: 2px; background: rgba(255,255,255,0.05); border-radius: 300px; overflow: hidden; }
+  .who-fill { height: 100%; background: var(--orange); border-radius: 300px; opacity: 0.55; }
+
+  /* TESTIMONIALS */
+  .testi-section { padding: 80px 0; background: var(--bg-raised); border-bottom: 1px solid var(--border); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .testi-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+  .testi-quote { font-size: 14px; color: var(--dim); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+  .testi-quote::before { content: '"'; color: var(--orange); font-size: 20px; font-style: normal; display: block; margin-bottom: 6px; line-height: 1; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-av { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,73,33,0.15); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--orange); flex-shrink: 0; }
+  .testi-name { font-size: 13px; font-weight: 700; }
+  .testi-biz { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* WHAT YOU GET */
+  .get-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  .get-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; }
+  .get-cell { padding: 32px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .get-cell:nth-child(3n) { border-right: none; }
+  .get-cell:nth-last-child(-n+3) { border-bottom: none; }
+  .get-icon { font-size: 22px; margin-bottom: 14px; }
+  .get-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .get-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  /* BOTTOM FORM */
+  .bottom-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  .bottom-inner { display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: start; }
+  .bottom-copy h2 { font-size: clamp(24px, 2.8vw, 38px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px; }
+  .bottom-copy p { font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 420px; }
+  .req-box { margin-top: 28px; border: 1px solid var(--border-lt); border-radius: 10px; padding: 20px 22px; background: var(--bg-raised); }
+  .req-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .req-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--dim); line-height: 1.5; margin-bottom: 8px; }
+  .req-item:last-child { margin-bottom: 0; }
+  .req-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); flex-shrink: 0; margin-top: 7px; }
+
+  /* FOOTER */
+  footer { padding: 36px 40px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--white); }
+  .footer-links { display: flex; gap: 24px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .hero-inner, .bottom-inner { grid-template-columns: 1fr; gap: 40px; }
+    .app-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .who-grid, .get-grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 20px; }
+    .hero { padding: 48px 0 56px; }
+    .stats-bar-inner { flex-wrap: wrap; }
+    .stat-item { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="https://dynamitecircle.com" class="nav-logo">Dynamite Circle</a>
+    <a href="https://dynamitecircle.com/account/apply" class="nav-cta">See if you qualify</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Application-only membership</div>
+        <h1>The place where<br>global founders find<br><em>their people.</em></h1>
+        <p class="hero-sub">Connect with 1,000+ founders running profitable, location-independent businesses across 66 countries. A curated peer community — not a course, not a conference — running since 2011.</p>
+        <div class="hero-proof">
+          <div class="hero-proof-item">
+            <div class="hero-proof-num">1,000+</div>
+            <div class="hero-proof-label">Active members</div>
+          </div>
+          <div class="hero-proof-item">
+            <div class="hero-proof-num">66</div>
+            <div class="hero-proof-label">Countries</div>
+          </div>
+          <div class="hero-proof-item">
+            <div class="hero-proof-num">15 yrs</div>
+            <div class="hero-proof-label">Running</div>
+          </div>
+          <div class="hero-proof-item">
+            <div class="hero-proof-num">$100k+</div>
+            <div class="hero-proof-label">Revenue minimum</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="form-card">
+          <div id="fc1">
+            <div class="form-card-title">Get early access</div>
+            <div class="form-card-sub">Leave your details and we'll reach out about membership.</div>
+            <form onsubmit="ok('fc1','fs1'); return false;">
+              <div class="form-group">
+                <label>Full name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label>WhatsApp <span class="form-optional">optional</span></label>
+                <input type="tel" placeholder="+1 555 000 0000">
+              </div>
+              <div class="form-group">
+                <label>Annual business revenue</label>
+                <select required>
+                  <option value="" disabled selected>Select a range</option>
+                  <option>No real income yet, it's still getting off the ground.</option>
+                  <option>$10K+</option><option>$50K+</option><option>$100K+</option>
+                  <option>$250K+</option><option>$300K+</option><option>$600K+</option>
+                  <option>$1M+</option><option>$2M+</option><option>$3M+</option>
+                  <option>$4M+</option><option>$7M+</option><option>$10M+</option>
+                  <option>I recently exited a business.</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+              <button type="submit" class="form-submit">Get in touch →</button>
+              <p class="form-fine">No spam. We'll only reach out about DC membership.</p>
+            </form>
+          </div>
+          <div class="form-success" id="fs1">
+            <div class="form-success-check">✓</div>
+            <h3>We'll be in touch.</h3>
+            <p>Thanks for your interest in the DC. We'll reach out shortly with more information about membership.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM PREVIEW -->
+<section class="preview-section">
+  <div class="container">
+    <div class="section-label">Inside the platform</div>
+    <h2 class="section-title">This is what you're actually joining.</h2>
+    <p class="section-sub">Not a pitch. A real look at the DC platform — the discussions, the channels, the people who are online right now. Member names are anonymized.</p>
+
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div>
+        </div>
+        <div class="browser-url">dynamitecircle.com/app · Members only</div>
+      </div>
+      <div class="app-layout">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <div class="sb-section">
+            <div class="sb-label">Main</div>
+            <div class="sb-item on">
+              <svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v10H2V2zm0 12l3-2h9V2H2v12z" opacity=".6"/></svg>
+              Discussions <span class="sb-badge">12</span>
+            </div>
+            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6"/></svg> Members</div>
+            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg> Events</div>
+            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v2H3V3zm0 4h10v2H3V7zm0 4h7v2H3v-2z"/></svg> Masterminds</div>
+          </div>
+          <div class="sb-hr"></div>
+          <div class="sb-section">
+            <div class="sb-label">Channels</div>
+            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> SaaS & Tech <span class="sb-badge">31</span></div>
+            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> Agency Owners</div>
+            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> AI</div>
+            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> E-commerce</div>
+            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> Investing</div>
+            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> Info Products</div>
+            <div class="sb-item" style="color:#2e2e2e;"><span style="font-size:10px;color:#2e2e2e;font-weight:700;margin-right:2px">#</span> + 12 more channels</div>
+          </div>
+          <div class="sb-hr"></div>
+          <div class="sb-section">
+            <div class="sb-label">Your City</div>
+            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg> Bangkok</div>
+            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg> Berlin</div>
+          </div>
+        </div>
+
+        <!-- MAIN FEED -->
+        <div class="app-main">
+          <div class="app-bar">
+            <div>
+              <div class="app-bar-title">Discussions — Help me with my business</div>
+              <div class="app-bar-meta">23,622 posts · Most active category</div>
+            </div>
+            <div style="font-size:11px;color:#3a3a3a;">Sort: Recent ↓</div>
+          </div>
+          <div class="app-feed">
+
+            <!-- ONLINE NOW -->
+            <div class="online-strip">
+              <div class="online-label">Online now — 38 members</div>
+              <div class="online-row">
+                <div class="mc"><div class="mc-av" style="background:#1a2a1a;">🇬🇧</div><div class="mc-role">SaaS founder</div><div class="mc-loc">🇬🇧 London</div></div>
+                <div class="mc"><div class="mc-av" style="background:#1a1a2a;">🇹🇭</div><div class="mc-role">Agency owner</div><div class="mc-loc">🇹🇭 Bangkok</div></div>
+                <div class="mc"><div class="mc-av" style="background:#2a1a1a;">🇵🇹</div><div class="mc-role">Consultant</div><div class="mc-loc">🇵🇹 Lisbon</div></div>
+                <div class="mc"><div class="mc-av" style="background:#1a2a2a;">🇦🇺</div><div class="mc-role">E-commerce</div><div class="mc-loc">🇦🇺 Sydney</div></div>
+                <div class="mc"><div class="mc-av" style="background:#2a2a1a;">🇲🇽</div><div class="mc-role">Info products</div><div class="mc-loc">🇲🇽 Mexico City</div></div>
+                <div class="mc"><div class="mc-av" style="background:#2a1a2a;">🇩🇪</div><div class="mc-role">Productized SVC</div><div class="mc-loc">🇩🇪 Berlin</div></div>
+              </div>
+            </div>
+
+            <!-- REAL DISCUSSION THREADS -->
+            <div class="thread hot">
+              <div class="th-av" style="background:#1a2a1a;">🌿</div>
+              <div class="th-body">
+                <div class="th-top"><span class="th-who">Member · Agency Owner · 🇬🇧</span><span class="th-when">2h ago</span></div>
+                <div class="th-title">Building a great/healthy company culture?</div>
+                <div class="th-preview">We're at 12 people across 4 countries. Culture happens accidentally or intentionally — I want to be intentional about it but don't know where to start...</div>
+                <div class="th-tags"><span class="th-tag o">Help me with my business</span><span class="th-tag">Hiring</span></div>
+                <div class="th-replies">↩ 9 replies</div>
+              </div>
+            </div>
+            <div class="thread hot">
+              <div class="th-av" style="background:#2a1a1a;">🔥</div>
+              <div class="th-body">
+                <div class="th-top"><span class="th-who">Member · SaaS founder · 🇺🇸</span><span class="th-when">4h ago</span></div>
+                <div class="th-title">AI-first mastermind forming — CST evenings, 3–5 builders</div>
+                <div class="th-preview">Looking for 3-5 people actively building AI products — not just experimenting, actually shipping. Weekly 60-min calls, serious accountability...</div>
+                <div class="th-tags"><span class="th-tag o">Mastermind</span><span class="th-tag">AI</span></div>
+                <div class="th-replies">↩ 11 replies</div>
+              </div>
+            </div>
+            <div class="thread">
+              <div class="th-av" style="background:#1a1a2a;">💼</div>
+              <div class="th-body">
+                <div class="th-top"><span class="th-who">Member · Consultant · 🇩🇪</span><span class="th-when">6h ago</span></div>
+                <div class="th-title">Paying contractors with a declining dollar — how do you handle it?</div>
+                <div class="th-preview">My contractor in South Africa says she gets paid ~20% less in rand now vs. 18 months ago. Do you absorb it, adjust the rate, pay in local currency?</div>
+                <div class="th-tags"><span class="th-tag o">Help me with my business</span><span class="th-tag">International Banking</span></div>
+                <div class="th-replies">↩ 18 replies</div>
+              </div>
+            </div>
+            <div class="thread">
+              <div class="th-av" style="background:#2a2a1a;">⚡</div>
+              <div class="th-body">
+                <div class="th-top"><span class="th-who">Member · E-commerce · 🇹🇭</span><span class="th-when">Yesterday</span></div>
+                <div class="th-title">Huge spike in direct traffic from Google data centers — anyone else?</div>
+                <div class="th-preview">Seeing 4x baseline direct traffic from Google data center IPs. Started 3 weeks ago. Not bots, not customers...</div>
+                <div class="th-tags"><span class="th-tag">SEO / SEM</span><span class="th-tag">E-Commerce</span></div>
+                <div class="th-replies">↩ 31 replies</div>
+              </div>
+            </div>
+            <div class="thread">
+              <div class="th-av" style="background:#1a2a2a;">🌎</div>
+              <div class="th-body">
+                <div class="th-top"><span class="th-who">Member · Info products · 🇨🇦</span><span class="th-when">Yesterday</span></div>
+                <div class="th-title">Setting up a company in Estonia — tips from people who've done it?</div>
+                <div class="th-preview">I've read the e-Residency guides but want to hear from people who've actually done it. Tax, banking, the real friction...</div>
+                <div class="th-tags"><span class="th-tag">International Banking</span><span class="th-tag">Legal</span></div>
+                <div class="th-replies">↩ 14 replies</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO'S INSIDE -->
+<section class="who-section">
+  <div class="container">
+    <div class="section-label">Who's inside</div>
+    <h2 class="section-title">994 operators. 66 countries. Real businesses.</h2>
+    <p class="section-sub">The DC requires $100K+ annual revenue. These are people who have built something real — and want to be around others who have too.</p>
+    <div class="who-grid">
+      <div class="who-card"><div class="who-industry">SaaS & Tech</div><div class="who-count">133 members</div><div class="who-bar"><div class="who-fill" style="width:100%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Professional Services & Consulting</div><div class="who-count">122 members</div><div class="who-bar"><div class="who-fill" style="width:92%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Marketing Agency</div><div class="who-count">111 members</div><div class="who-bar"><div class="who-fill" style="width:83%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Ecommerce & Amazon</div><div class="who-count">76 members</div><div class="who-bar"><div class="who-fill" style="width:57%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Courses & Info Products</div><div class="who-count">76 members</div><div class="who-bar"><div class="who-fill" style="width:57%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Productized Services</div><div class="who-count">48 members</div><div class="who-bar"><div class="who-fill" style="width:36%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Content & Affiliate</div><div class="who-count">32 members</div><div class="who-bar"><div class="who-fill" style="width:24%"></div></div></div>
+      <div class="who-card"><div class="who-industry">Real Estate & Investing</div><div class="who-count">12 members</div><div class="who-bar"><div class="who-fill" style="width:9%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="container">
+    <div class="section-label">What members say</div>
+    <h2 class="section-title">Don't take our word for it.</h2>
+    <p class="section-sub">From people who've been in the community for years — not hand-picked launch reviews.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">I love being in the DC — it's a great community of growth-focused individuals that help me level up. The quality of connections and conversations is unlike anything else I've found online.</div>
+        <div class="testi-author">
+          <div class="testi-av">KS</div>
+          <div><div class="testi-name">Karla Singson</div><div class="testi-biz">Founder, Proximity Outsourcing</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">What makes this community different: members are very open and willing to help. You get real answers from people who've actually done it — not theory, not pitches.</div>
+        <div class="testi-author">
+          <div class="testi-av">VH</div>
+          <div><div class="testi-name">Vinh Ho</div><div class="testi-biz">Founder, Focus Asia-Pacific</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">DC is amazing because it's a community of people actively and openly working on growing themselves and their businesses. The accountability and honesty here is rare.</div>
+        <div class="testi-author">
+          <div class="testi-av">AG</div>
+          <div><div class="testi-name">Alan Gould</div><div class="testi-biz">Founder, Lumify</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="get-section">
+  <div class="container">
+    <div class="section-label">What's included</div>
+    <h2 class="section-title">Built around how founders actually work.</h2>
+    <p class="section-sub">Everything in the DC is designed around one thing: peer-to-peer connection between people who run real businesses.</p>
+    <div class="get-grid">
+      <div class="get-cell">
+        <div class="get-icon">💬</div>
+        <div class="get-title">On-demand peer advice</div>
+        <div class="get-desc">Post a problem in any channel and get answers from people who've actually solved it. Hiring, pricing, partnerships, exits — no gurus, no upsells.</div>
+      </div>
+      <div class="get-cell">
+        <div class="get-icon">🎯</div>
+        <div class="get-title">Mastermind groups</div>
+        <div class="get-desc">Get matched into a small group of 4–6 peers at your revenue stage. Regular calls, real accountability, specific to your business situation.</div>
+      </div>
+      <div class="get-cell">
+        <div class="get-icon">🌍</div>
+        <div class="get-title">Global events</div>
+        <div class="get-desc">DCBKK (Bangkok), DC Mexico, DC Week, and local Juntos every year. In 25 years of business, members call DCBKK the best event they've ever attended.</div>
+      </div>
+      <div class="get-cell">
+        <div class="get-icon">🔒</div>
+        <div class="get-title">Private by design</div>
+        <div class="get-desc">Curated and closed since 2011. Members share revenue numbers, equity structures, and real challenges because the community isn't public.</div>
+      </div>
+      <div class="get-cell">
+        <div class="get-icon">📍</div>
+        <div class="get-title">Local meetups</div>
+        <div class="get-desc">Combat isolation and build your core support group through member-led Juntos and city-based groups — wherever in the world you're based.</div>
+      </div>
+      <div class="get-cell">
+        <div class="get-icon">🤝</div>
+        <div class="get-title">A network that means something</div>
+        <div class="get-desc">The DC is built on connections. Business partnerships, hiring referrals, travel recommendations — the relationships here are real and lasting.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM FORM -->
+<section class="bottom-section">
+  <div class="container">
+    <div class="bottom-inner">
+      <div class="bottom-copy">
+        <h2>Membership is by application only.</h2>
+        <p>The DC has been invite-only and application-gated since 2011. We're not for everyone — and that's the point. Leave your details and we'll reach out to walk you through the process.</p>
+        <div class="req-box">
+          <div class="req-title">Membership requirements</div>
+          <div class="req-item"><div class="req-dot"></div> $100K+ annual business revenue</div>
+          <div class="req-item"><div class="req-dot"></div> Running a location-independent or remote-friendly business</div>
+          <div class="req-item"><div class="req-dot"></div> Growth-focused, high-character founder</div>
+          <div class="req-item"><div class="req-dot"></div> Application review by the DC team</div>
+        </div>
+      </div>
+      <div>
+        <div class="form-card">
+          <div id="fc2">
+            <div class="form-card-title">Get in touch</div>
+            <div class="form-card-sub">We'll reach out about membership within a few days.</div>
+            <form onsubmit="ok('fc2','fs2'); return false;">
+              <div class="form-group">
+                <label>Full name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label>WhatsApp <span class="form-optional">optional</span></label>
+                <input type="tel" placeholder="+1 555 000 0000">
+              </div>
+              <div class="form-group">
+                <label>Annual business revenue</label>
+                <select required>
+                  <option value="" disabled selected>Select a range</option>
+                  <option>No real income yet, it's still getting off the ground.</option>
+                  <option>$10K+</option><option>$50K+</option><option>$100K+</option>
+                  <option>$250K+</option><option>$300K+</option><option>$600K+</option>
+                  <option>$1M+</option><option>$2M+</option><option>$3M+</option>
+                  <option>$4M+</option><option>$7M+</option><option>$10M+</option>
+                  <option>I recently exited a business.</option>
+                  <option>Prefer not to say</option>
+                </select>
+              </div>
+              <button type="submit" class="form-submit">Get in touch →</button>
+              <p class="form-fine">No spam. We'll only reach out about DC membership.</p>
+            </form>
+          </div>
+          <div class="form-success" id="fs2">
+            <div class="form-success-check">✓</div>
+            <h3>We'll be in touch.</h3>
+            <p>Thanks for your interest in the DC. We'll reach out shortly with more information about membership.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Dynamite Circle. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="https://dynamitecircle.com">dynamitecircle.com</a>
+    <a href="https://dynamitecircle.com/account/apply">Apply to join</a>
+  </div>
+</footer>
+
+<script>
+  function ok(formId, successId) {
+    document.getElementById(formId).style.display = 'none';
+    document.getElementById(successId).style.display = 'block';
+  }
+</script>
+</body>
+</html>
