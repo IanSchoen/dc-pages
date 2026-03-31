@@ -143,9 +143,10 @@
 
   /* MEMBER FACES */
   .faces-section { padding: 80px 0; border-bottom: 1px solid var(--border); overflow: hidden; background: linear-gradient(rgba(8,8,8,0.55), rgba(8,8,8,0.55)), url('https://cdn.dynamitecircle.com/images/8558ca608f7e89a75647a7f7140f814c.jpg') center/cover no-repeat; }
-  .faces-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 40px; }
-  .face-img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.08); display: block; cursor: default; transition: transform 0.15s, border-color 0.15s; }
-  .face-img:hover { transform: scale(1.15); border-color: var(--orange); z-index: 2; position: relative; }
+  .faces-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+  .face-card { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 84px; }
+  .face-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); display: block; }
+  .face-loc { font-size: 10px; color: var(--muted); text-align: center; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; }
 
   /* WHO'S INSIDE */
   .who-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
@@ -417,306 +418,198 @@
     <h2 class="section-title">1,500 founders. 66 countries.</h2>
     <p class="section-sub">This is who's in the room — operators running real businesses across every time zone and industry.</p>
     <div class="faces-grid">
-      <img src="https://cdn.dynamitecircle.com/profiles/193fa061f5e58e26b5b3e4a126838a7d.jpg" alt="DC member" title="🇺🇸 Brownsville" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1d1cedc0e681c68434a771b977f1ef7a.jpg" alt="DC member" title="🇨🇦 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a4abeaa6-877e-4516-b82c-2e4eef2a02ac.png" alt="DC member" title="🇻🇳 Ho Chi Minh City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/22f99742-66c5-46b9-84ba-d302874b5ec2.jpg" alt="DC member" title="🇵🇹 Lagos" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bb2385ad-655b-4df4-b2ce-cfaa4fb47b54.jpg" alt="DC member" title="🇳🇴 Alta" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d993c19f-a4ba-4384-9eeb-7c8041782f09.jpg" alt="DC member" title="🇵🇹 Lisbon" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9689314f85de62b2284b9f0c7df90453.jpg" alt="DC member" title="🇪🇸 Barcelona" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0b8b0bdc-bda2-4530-9bbe-768f18bf3fd1.jpg" alt="DC member" title="🇦🇺 Sunshine Coast" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b1f78ff6-cd0f-4aa9-8624-76f1b0b97bff.jpg" alt="DC member" title="🇺🇸 Portland" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d4516f23-be95-42ee-a804-dbfe3d3c3be9.jpg" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9ae26964-a8c7-4cc0-876e-a5aa206a3aed.jpg" alt="DC member" title="🇺🇸 McAllen" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1dd3c674-f641-421e-9b43-69d1e90f60ec.jpg" alt="DC member" title="🇨🇦 Vancouver" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d26bd97c-3663-46bf-a753-ca3efe8749cc.jpg" alt="DC member" title="🇺🇸 New Orleans" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/394c49c0d4552dfa5923dce82bf1e0f7.jpg" alt="DC member" title="🇨🇭 Zug" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/7b150f5e-18b3-4122-97c1-4cbd7373d813.jpg" alt="DC member" title="🇲🇽 El Sargento" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6c73b272-609d-4415-8921-63b8fc094952.jpg" alt="DC member" title="🇺🇸 Greenville" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/47a9d212-a90d-46e2-9f2e-3054032d0d3d.jpg" alt="DC member" title="🇭🇺 Budapest" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/ddc5a262-8138-417d-b3a4-b8a78c0c462a.jpg" alt="DC member" title="🇺🇸 Los Angeles" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b334a2ea-2b69-4155-81ff-8404dd64b5ee.jpg" alt="DC member" title="🇺🇸 Thomas" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b78c900d-4804-49b9-9088-445bd165fcd3.jpg" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d20fcc81-b631-4fd5-88ec-9c3d1b350341.png" alt="DC member" title="🇻🇳 Ho Chi Minh City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fb861251-a438-446f-8d96-ea0e5a12790b.jpg" alt="DC member" title="🇲🇪 Podgorica" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/85bff1e8-b606-44e0-a083-e1c718388e58.png" alt="DC member" title="🇵🇹 Lisbon" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fa90ce77a6f4f503cabd145f4381e1ae.jpg" alt="DC member" title="🇺🇸 Chicago" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8cc3b535-9cd8-4a1a-8358-b6e1af5577b2.jpg" alt="DC member" title="🇨🇦 Toronto" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d98da066-cc44-49df-9f11-81a6b2fa6c9b.jpg" alt="DC member" title="🇨🇦 Toronto" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fecff55d6cb0ce6753ad1839f81a2b7a.jpg" alt="DC member" title="🇫🇷 Montpellier" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bb441519-eb42-4bb9-831e-259c73ec4a1e.jpg" alt="DC member" title="🇧🇷 Florianopolis" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1d4f7deca6cba25b19d9c44d3986e7fb.jpg" alt="DC member" title="🇷🇴 Bucharest" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/601fe64c-f0f6-4c2e-883e-d8edf6eea7ba.jpg" alt="DC member" title="🇪🇸 Málaga" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dab76fb9a2a9333acb2452cbc8c6dc15.jpg" alt="DC member" title="🇲🇽 Playa del Carmen" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2635d553-ae67-46c5-84d0-78b39fe9e52d.jpg" alt="DC member" title="🇮🇪 Clonadra" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6268738733a7cb984e1bc67b559d8de5.jpg" alt="DC member" title="🇫🇷 Montpellier" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/67f68f18-69ee-430a-906d-f6c23578bd52.jpg" alt="DC member" title="🇺🇸 New York" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2b3b47a75ec09f4cf943bcd7b1175236.jpg" alt="DC member" title="🇦🇱 Vlore" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9ee72c42-1bb0-457c-b89f-0f303e2135f8.jpg" alt="DC member" title="🇧🇷 Rio de Janeiro" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b8754cba-e119-4f92-a25c-9e4038a89d7b.png" alt="DC member" title="🇲🇽 Playa del Carmen" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a1870209-b66d-4c05-b233-d63172f6a44e.jpg" alt="DC member" title="🇺🇸 Lancaster" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/52129f37-34f7-49a8-9f24-7a4d2bad0c39.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/063215f0-17f8-4e3a-8863-ba20522e7c59.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/35967e51-5da4-449c-abb6-bf759908661c.jpg" alt="DC member" title="🇦🇺 Sydney" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dfe8a743-8f51-40f4-9e41-3a2676fdb8ed.jpg" alt="DC member" title="🇻🇳 Hanoi" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6bb6733e-2ee0-43fa-b3ac-da252ccf01bd.jpg" alt="DC member" title="🇺🇸 Dallas" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d0b1a738-2c7b-46ec-8ff3-51f5139a027b.jpg" alt="DC member" title="🇺🇸 Torrance" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5f71ad81-6367-4ba7-9a42-f73df85e5385.jpg" alt="DC member" title="🇫🇷 Montpellier" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a26d374a-9c7c-47fe-8d5c-eb3461301b19.jpg" alt="DC member" title="🇦🇩 Andorra la Vella" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/3c6a2a87-dbc6-4625-8347-fdb096d1b176.jpg" alt="DC member" title="🇦🇺 Adelaide" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0b922d77-4e48-4afe-9fe2-a494bdab7499.jpg" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/720e8990-ade1-4f1a-9082-c57062ee4550.jpg" alt="DC member" title="🇮🇹 Lecce" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/15461551-a844-4040-8298-d9137bb6fb0f.jpg" alt="DC member" title="🇺🇸 Denver" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/cec821ea-febf-4461-bf64-c594a781a623.jpg" alt="DC member" title="🇪🇸 Barcelona" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6231117c-1c05-499f-a46b-7d9d54f292d5.png" alt="DC member" title="🇺🇸 Dulles" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fee0258e-25cb-4c00-8b0c-cb1e1e3d6139.jpg" alt="DC member" title="🇳🇿 Christchurch" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/107f6995-427d-4adc-9562-2e29942a9d26.jpg" alt="DC member" title="🇺🇸 Denver" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/44b2d1577668cfaabdbb26be0dff3386.jpg" alt="DC member" title="🇩🇪 Berlin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bcd43b2da12acca4425c725c25f83f03.jpg" alt="DC member" title="🇮🇱 Hadera" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b8f345d2-6986-4c55-918f-20b8dbf22b28.png" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/69bdb331955641786db9a3d2b6810720.jpg" alt="DC member" title="🇲🇾 George Town" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b4158ccd-81ad-4a7b-ab97-7ff36a57c243.jpg" alt="DC member" title="🇲🇽 Mexico City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4faf7dfb-cabd-4f39-800b-0b0e79964192.jpg" alt="DC member" title="🇯🇵 Shibuya" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/83049828-80ed-4bbf-a3e4-7da1133caf2b.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fef730e9-fd43-4ea2-88f2-0e98b2f561ba.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/7e257d30-3619-44ec-a28f-8d3ec59c7e40.jpg" alt="DC member" title="🇦🇺 Sydney" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/220fa4b8-086e-4a3e-b584-f9d304b96ce0.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/7a6675fb28fc403e77d103e304281fa9.jpg" alt="DC member" title="🇦🇺 Glebe" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b3a6baf0-2982-4932-8997-88a765ddcdb3.png" alt="DC member" title="🇸🇬 Singapore" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/feb9d91b-f6c6-469f-91bd-68c844218e58.jpg" alt="DC member" title="🇺🇸 San Francisco" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/25a2a4ecad062c2b3c2f6a87e1865a36.jpg" alt="DC member" title="🇳🇿 Wellington" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a5036afd-23e2-45de-9b92-995bdfe3afce.jpg" alt="DC member" title="🇹🇼" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5e72a9d2-0a1b-4c42-bfec-80deadd91cce.jpg" alt="DC member" title="🇺🇸 Chattanooga" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/7116b889-72d5-46f0-82be-4f34fc76c1f2.jpg" alt="DC member" title="🇮🇩 Denpasar" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/ec646b097bde78331c7f1c678579f797.jpg" alt="DC member" title="🇦🇷 Buenos Aires" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/ea685a167306f9f6ccd28d19034c4eec.jpg" alt="DC member" title="🇺🇸 San Diego" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/41275c4a-dd8b-4fef-b788-14ec9f0e1b06.jpg" alt="DC member" title="🇦🇺 Bendigo" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/621bb719-9a7c-4f3f-a1d6-a1f65376ad32.jpg" alt="DC member" title="🇺🇸 Perkasie" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4a74f73d-13a5-4c3d-95de-295075fc6e89.jpg" alt="DC member" title="🇦🇺 Sydney" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/eba2b390-68bd-4a9a-8276-7db06de9dccd.jpg" alt="DC member" title="🇦🇺 Sydney" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f344e236-de5c-4d2c-bd63-d62b76ec273d.jpg" alt="DC member" title="🇳🇿 Queenstown" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/c9781ba0ae3ae8ec5ab229aa037ba727.jpg" alt="DC member" title="🇺🇸 Newport News" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/3179c1e5bdef2195c5f9c26ba091ed12.jpg" alt="DC member" title="🇺🇸 Seattle" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b6e8d8cba231c9eabe597cead4263771.jpg" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/599ad2c9-d6ae-4f30-bf80-0decd2260e94.jpg" alt="DC member" title="🇬🇧 Urmston" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2868e501a0b38805912d64a122ac9e40.jpg" alt="DC member" title="🇺🇸 Los Angeles" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/3afecdae-c464-40e5-922e-ad1fdf395bc4.jpg" alt="DC member" title="🇬🇧 Birmingham" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0d8c783e-67ef-4ea4-8f37-bccb42eb9620.jpg" alt="DC member" title="🇺🇸 Cheyenne" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f10f1ff6-babd-43d2-bff2-339c8dcc8799.jpg" alt="DC member" title="🇬🇷 Athens" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b29402c7-a227-4465-8141-17e8c200780a.jpg" alt="DC member" title="🇺🇸 Miami" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/90ad1fc1-7e24-465c-852c-035e522d72a0.jpg" alt="DC member" title="🇭🇰 Hong Kong" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0506d8d3-8ca6-4dc3-b30f-7bf4eba62384.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/938a6154c56774110bb3bbc97875b590.jpg" alt="DC member" title="🇫🇷 Montpellier" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/18c478fc-35d7-447c-b8ac-799ff82e44ee.jpg" alt="DC member" title="🇺🇸 San Marcos" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2f53ef1435d3eccf13403f376be0dade.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4685b746-ca3b-42f3-9b5b-b70ae532da8b.jpg" alt="DC member" title="🇺🇸 Portland" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/03f513e8660870589338d69427d7a537.jpg" alt="DC member" title="🇺🇸 Concord" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6735c52d-27b4-4e5f-a42f-91a29621e9b3.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/7d30860f-ad08-418f-ae3e-e1ea29161417.jpg" alt="DC member" title="🇺🇸 Orlando" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/95dda981319c006992c4b8438bbe1c3d.jpg" alt="DC member" title="🇮🇩 Dalung" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/c68093d633b2552df9b8e5cbfb342870.jpg" alt="DC member" title="🇨🇴 Medellín" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/c739cfd696cd75625bde7d94bbca5e36.jpg" alt="DC member" title="🇨🇦 Toronto" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5a28e04e-2cf2-4078-a5c5-90507dc2f6ec.jpg" alt="DC member" title="🇺🇸 St. Louis" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/39a4a2d8-0ad8-48eb-b2f1-003d4accb474.jpg" alt="DC member" title="🇵🇹 Lisboa" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/98e662e0-2e03-4619-8414-d702ad1cd599.jpg" alt="DC member" title="🇬🇧 Edinburgh" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e4ef6c69-a7df-4c00-9ab3-bbeea83d6617.jpg" alt="DC member" title="🇺🇸 Asheville" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bb600c6fe3a8fbab812282773454f1f6.jpg" alt="DC member" title="🇺🇸 Jacksonville" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6e10d114-6293-4d22-8082-9d764a2962ea.jpg" alt="DC member" title="🇺🇸 Chattanooga" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bg8YNOX6ikgUb4QBaMgQ.jpeg" alt="DC member" title="🇲🇽 Playa del Carmen" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/ed18a35548e4c3110357ae76c96442c2.jpg" alt="DC member" title="🇫🇷 Roissy-En-France" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/181bc98c-2668-4221-87ed-d98327225c7f.jpg" alt="DC member" title="🇵🇹 Lisbon" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4dd884a038eada844ad07054cbb51e85.jpg" alt="DC member" title="🇵🇹 Lisboa" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dc0a77f3-a13f-4940-b0d2-a1c6bf8803be.jpg" alt="DC member" title="🇺🇸 Powell" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f23d5084-552f-46b0-8a26-975fd8aa8569.png" alt="DC member" title="🇻🇳 Ho Chi Minh City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4a112957a1a1a5c35dbc84ed897ec895.jpg" alt="DC member" title="🇺🇸 Los Angeles" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8a4c9dae-01dd-4c9b-acde-f8811cd7d762.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9765c297-bec8-41a4-b337-86a36805c273.jpg" alt="DC member" title="🇦🇺 Melbourne" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/3d461b9f-ca14-45db-a663-b0ab64370c7a.jpg" alt="DC member" title="🇮🇹 Barletta" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/cpGWheaYHxTIR3k7Iv0Q.jpeg" alt="DC member" title="🇹🇭 Koh Samui" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d600c904-1aa5-4303-b011-e0f607ec2d88.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0de66680-fd85-4561-beaf-facf07543dd1.jpg" alt="DC member" title="🇦🇺 Perth" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/345141a7-851c-492e-9059-2f3246f584e6.jpg" alt="DC member" title="🇻🇳 Hoi An" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b49e0fc5-34cc-412b-85d7-a6775c85bca0.jpg" alt="DC member" title="🇺🇸 Colorado Springs" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/763ddc6fed12435afcfbb2af3b32bed8.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bc70c416-94c2-47b6-aa3f-937eb84df07e.jpg" alt="DC member" title="🇲🇽 Ciudad de México" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6db0ca7b-0375-403b-9e3b-6b67329f7cc0.jpg" alt="DC member" title="🇹🇭 Koh Samui" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5ce87074-07be-4019-a749-b37a3f147bbc.jpg" alt="DC member" title="🇨🇷 San Jose" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6562b952-f2a7-4680-b63d-0e6f29645c15.jpg" alt="DC member" title="🇦🇺 Melbourne" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/52eb85f6-e37c-48be-adf0-b5865d63dea3.jpg" alt="DC member" title="🇲🇽 Mexico City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/01f2f197690973519ba4249e6304eb33.jpg" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a9037561-5135-43bc-b7d7-258a28c336bb.jpg" alt="DC member" title="🇺🇸 San Diego" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f7236a9f3e5b24243e83e4d34ae120d3.jpg" alt="DC member" title="🇪🇸 Barcelona" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/97db47f0fc2cc5208e5c1a24fca6db01.jpg" alt="DC member" title="🇺🇸 Los Angeles" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8ecd2cb5-5e92-4b4a-9abe-5508072012d8.jpg" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d7fec0909b33fe87289f361a727668f3.jpg" alt="DC member" title="🇱🇻 Aizkraukle" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8757846d-2334-4fe7-9c9b-eeaf42be8f98.png" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/163f8b94-cb42-49e2-a742-df44bdbf4411.jpg" alt="DC member" title="🇺🇸 Denver" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9450ea04-c473-4d98-8465-0dde79c13f97.jpg" alt="DC member" title="🇧🇬 Bansko" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5f9090d9-860a-4b34-bda8-a477c60a41af.jpg" alt="DC member" title="🇳🇱 Rotterdam" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1124d2d4-8bd8-4b4c-a67d-a5805af27af5.jpg" alt="DC member" title="🇨🇦 Kelowna" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/606f6888-40b9-43f8-b5f2-9d00159de8f1.jpg" alt="DC member" title="🇻🇳 Da Nang" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b22c7ec9-7151-4102-a4bb-60790cc98f50.jpg" alt="DC member" title="🇺🇸 Portland" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e01690e7-0af8-4355-8ebc-0a5e67299e4e.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/95e53133-2dcf-441c-ae2e-f60cfadbbbbc.jpg" alt="DC member" title="🇫🇷 Paris" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9d635b27-3acd-48db-8bde-50a3e27369d3.jpg" alt="DC member" title="🇹🇭 Koh Samui" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d1647fe0-8641-4e3d-ab81-8f7b70d05fb7.jpg" alt="DC member" title="🇫🇷 Toulouse" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8e9808c6-6f3b-42c7-8aa1-2677658cc15c.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1cdd4297-2e76-442e-b501-27049fd775b0.jpg" alt="DC member" title="🇵🇦 Panama City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/thumbs/reg_ygY6AM2DcmNJYzKh9IAk_320x320.webp" alt="DC member" title="🇦🇺 Sydney" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dfa1a3ed-e95e-4924-a11b-f56b45125366.jpg" alt="DC member" title="🇹🇼 Banqiao District" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e82caebd-8ad9-4ad9-b81b-89637013328f.jpg" alt="DC member" title="🇺🇸 Phoenix" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d6693ad5-015e-4b2b-bf81-474418672f15.jpg" alt="DC member" title="🇹🇭 Phuket" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a40df4da-fee8-45d0-a33d-bc8a108cdd97.jpg" alt="DC member" title="🇦🇺 Melbourne" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e007f98a-0c79-4be1-8abc-307a7323512a.jpg" alt="DC member" title="🇺🇸 Oceanside" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/932b17c1-ace6-42de-b8ed-907174b6b9f7.jpg" alt="DC member" title="🇲🇾 Jelutong" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/c73246b7dc694ad37b48dd8f44b1cc1b.jpg" alt="DC member" title="🇺🇸 Encinitas" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/7faabba0-5d48-4609-b4ce-a9cbc1e6a9b7.jpg" alt="DC member" title="🇺🇸 Waxahachie" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9564c6c9-a9c8-4638-a972-86cc2420dddc.jpg" alt="DC member" title="🇦🇷 Buenos Aires" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/7f8f1aec-0ad4-4a20-afaa-f07714b0351d.jpg" alt="DC member" title="🇪🇸 Barcelona" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9ab459a9-81c2-4f33-8dc1-e1cf5e79a69d.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b81706a1-6b07-4d01-8c5c-8ff2916d4e05.jpg" alt="DC member" title="🇧🇷 São Paulo" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9d490842-74f7-457d-bd8c-451b083182b8.png" alt="DC member" title="🇫🇷 Montpellier" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/031eccbd-dd36-45c7-9417-cdb20cd09b4c.png" alt="DC member" title="🇺🇸 Miami" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8bcf3a02-b1bb-41a1-9b83-623533bcbb87.jpg" alt="DC member" title="🇪🇬 Cairo" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/657ef4e6-b45c-4c0e-85a2-bf95e5b76ce4.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/49aeaac5-0d37-4080-bcbc-ad965f8c3ac3.jpg" alt="DC member" title="🇨🇴 Medellín" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e8163591-a038-41cc-b4b4-c5ff209e53cf.jpg" alt="DC member" title="🇮🇩 Denpasar" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2a54cffc-ce42-469a-b476-36222d64e40e.jpg" alt="DC member" title="🇺🇸 San Jose" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/HUvhvGplXgkBYsLdBrBG.jpeg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/83af6718-db47-4514-b822-e4c956663be4.jpg" alt="DC member" title="🇲🇹 Tas-Sliema" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dfe9f9ce-cf3d-42ab-baf7-4de42e39c5cc.jpg" alt="DC member" title="🇪🇸 Barcelona" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d09b05a0-d782-431e-ab76-018139561a54.jpg" alt="DC member" title="🇸🇬 Singapore" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a3b9f512-81cb-45c3-b5c7-087c5a3536f9.jpg" alt="DC member" title="🇮🇩 Dalung" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/thumbs/reg_rBBvvczl2eoX4xy0TptF_320x320.webp" alt="DC member" title="🇨🇦 Toronto" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8b860b61efa0dc6042b218c543eb982a.jpg" alt="DC member" title="🇹🇼 Zhongshan District" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d4938701-023a-409e-8656-6db24823531e.jpg" alt="DC member" title="🇺🇸 Las Vegas" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f850771e-20ea-4a17-b71a-4ba21f3e447b.jpg" alt="DC member" title="🇻🇳" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4c94530d-4ae6-4436-9955-bea61d5220fa.jpg" alt="DC member" title="🇦🇷 Buenos Aires" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b26f17b3-69fe-46bf-b706-693e39c6a00e.png" alt="DC member" title="🇲🇽 Mexico City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4b0aabdfbf9113ea46eeaa5012e9f958.jpg" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/23e0d14d-aa06-4783-a751-78bb96237f0b.jpg" alt="DC member" title="🇵🇹 Lisbon" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0daea39e-2f4f-4f7c-a8c6-2e122df7f81a.jpg" alt="DC member" title="🇮🇪 Ballygriffey South" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/91e0f341-8e1f-4478-94d8-4c2a912fa0c1.jpg" alt="DC member" title="🇫🇷 Montpellier" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2679785c-e4aa-4123-9c7e-132cb29e2519.png" alt="DC member" title="🇺🇸 Chicago" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a1664a6f-7877-4db8-922e-d47b6a8f65e7.jpg" alt="DC member" title="🇺🇸 Kayenta" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fa401d1c-079a-4599-b4c8-2c6af2d41b6b.jpg" alt="DC member" title="🇺🇸 Durango" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/79b98770-598d-43f2-8f55-399af95def33.jpg" alt="DC member" title="🇨🇦 Toronto" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1ce3b244-b8ed-4737-add4-61d7e3379dc6.jpg" alt="DC member" title="🇦🇩" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d6edce35-5edc-43d9-96c4-b635075aeac3.jpg" alt="DC member" title="🇺🇸 Glendale" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b0c9ec07-dd08-42b7-b8fb-3abe6e4d7cc0.jpg" alt="DC member" title="🇸🇪 Svärdsjö" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/794b1bac520f8803275f88705dfe7c85.jpg" alt="DC member" title="🇱🇻 Riga" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4df02b66089c08c5fc69f7b6b8ca702c.jpg" alt="DC member" title="🇺🇸 Kansas City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/cd075883-f06a-4f76-9c5f-77533321117e.jpg" alt="DC member" title="🇺🇸 Farmington Hills" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/22cbfb9ea01cfd9577bdc44a38cb4096.jpg" alt="DC member" title="🇺🇸 Charlotte" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4f0e601d-288d-431b-9c3a-f3a0cec3e1fd.jpg" alt="DC member" title="🇧🇬 Sofia" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b1edd67b32f4489aecab4a47503afded.jpg" alt="DC member" title="🇺🇸 Chicago" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/67ad88a1fa4350f55db68e37e292a8ed.jpg" alt="DC member" title="🇲🇽 Cozumel" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/277d5f51-92ad-4aa3-9171-77c0b250e1ac.jpg" alt="DC member" title="🇨🇦 Pickering" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/327925e5-93d1-4e2d-a28c-79db27fc4f71.jpg" alt="DC member" title="🇵🇹 Porto" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8de5969a-bc19-4859-9c3e-be607797e874.jpg" alt="DC member" title="🇮🇩 Dalung" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1dae4da93fa8714933dc2e8597f65dd0.jpg" alt="DC member" title="🇵🇭 San Jose del Monte" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1f4046fd-a037-4d9b-a884-c85d22da6d4c.jpg" alt="DC member" title="🇩🇪 Munich" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5ea758e5-d126-412b-9528-44c7cdb139e6.jpg" alt="DC member" title="🇲🇽 Mexico City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f4a3b37e-7c9f-4a54-b154-8cdc93563e7b.jpg" alt="DC member" title="🇦🇺 Melbourne" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/30858cac-ce62-4e7b-8626-f5a439e059e3.jpg" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/3136ede7-0640-4642-9638-b164d38cb3a0.jpg" alt="DC member" title="🇺🇸 San Francisco" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dc5b114aff18bb7524f3885dbba71b14.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4b0979e2-dbec-4537-8c8f-5f648b9f0d7c.jpg" alt="DC member" title="🇯🇵 Osaka" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a36cec3d1a4fcd2ab216bb617f0ece91.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/c936165c1f44570e1f7a1a431e8ace17.jpg" alt="DC member" title="🇦🇺 Sydney" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5fa96665-e488-4b29-b3f5-a8b56e5942ef.png" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/df2ba40c7b6e8cc6534bf7210ad7b0b0.jpg" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8e04776f-5649-488e-b122-402e43fb817a.png" alt="DC member" title="🇺🇸 Georgetown" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d6881cbc-0cb5-4870-a4b8-56ec9167e855.jpg" alt="DC member" title="🇹🇭 Ko Pha-Ngan" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b8ab8501-0f9f-498f-b46a-de2e28e5a897.jpg" alt="DC member" title="🇵🇦 Panama City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0oDI1O1M5gWRYQnu3QCE.jpeg" alt="DC member" title="🇦🇺 Melbourne" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/8ff07fb3-769c-47bf-83d0-5dae892abc66.png" alt="DC member" title="🇺🇸 Rochester" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e0caaf8d14ff6bf773f7aa7929795cfa.jpg" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9eb6c058-305d-480e-8e86-d95c4e826bc0.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d507271c-7b44-4dcc-9858-6fe2684cfe9d.png" alt="DC member" title="🇺🇸 Dallas" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b6f79f66-ab8e-4f22-b7e6-f42d985decf6.jpg" alt="DC member" title="🇺🇸 Miami" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2fe16bc2-49c5-43c5-ba74-db08965b082a.png" alt="DC member" title="🇺🇸 Phoenix" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/67f4d1e2458b06af45ff9625515af4ff.jpg" alt="DC member" title="🇺🇸 New York" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/738d831d-3b99-4b44-9de1-20eadb1169d8.jpg" alt="DC member" title="🇲🇽 Cancun" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5f41644e-8952-4f68-90ce-ef1a859890ef.jpg" alt="DC member" title="🇺🇸 Westminster" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dd34194b-0379-4c91-aca9-6c824e836ea1.jpg" alt="DC member" title="🇫🇷 Montpellier" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/ee8acb52-6672-4747-824f-0d2b3d8bc6ec.jpg" alt="DC member" title="🇸🇪 Solna" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/efb2b18f-f61f-4339-ba17-317042e03150.jpg" alt="DC member" title="🇺🇸 San Jose" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/00772351-3c9f-4c6a-b114-705a1a5f4b4b.jpg" alt="DC member" title="🇩🇴 Santo Domingo Este" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1a2d5cfd-554e-4a0a-a63b-b8273c4b7739.jpg" alt="DC member" title="🇳🇴 Baerum" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/42946d7a-781d-4e92-95cf-e0b80371a21f.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a2786968-4e70-4fef-9042-1224ce7dc6d0.jpg" alt="DC member" title="🇱🇹 Vilnius" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/36a3009228a17736caf9b168ab3009b5.jpg" alt="DC member" title="🇪🇸 Barcelona" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a5c58424-c471-4725-834f-b94da4ff887a.jpg" alt="DC member" title="🇺🇸 Midway" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e1a5aaef-1ed6-4667-a602-9e840e669d5b.jpg" alt="DC member" title="🇦🇺 Brisbane" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/cbaa69d9-064f-49ea-89dc-9742ed00c1f0.png" alt="DC member" title="🇦🇺 Sydney" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/25fe53fd-92a2-4d59-a0cd-87ac582443ea.jpg" alt="DC member" title="🇫🇷 Paris" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/4eec64b071305a29f4078fd38782ccf5.jpg" alt="DC member" title="🇮🇹 Padua" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/3c71267a-ddec-4cb8-9fd5-1db8deab4489.jpg" alt="DC member" title="🇦🇺 Brisbane" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/43d8a8bf0bc5ae1f946b8a1e951aa3c4.jpg" alt="DC member" title="🇨🇾 Lakatamia" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a41dd8ea-1e0b-4ab9-82b8-b51c5ce4c557.jpg" alt="DC member" title="🇦🇺 Melbourne" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9ec47ba1-6b62-4d26-92da-695019897e44.jpg" alt="DC member" title="🇵🇭 Manila" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/199b10bf-3432-4b0a-b666-cb3f3956b47e.jpg" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/a56d5ab9-4ba2-4122-b0cb-47050742bb18.png" alt="DC member" title="🇨🇦 Richmond" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/28e6ad7e-4ad3-46c0-b5ac-038e2b7bbdbc.jpg" alt="DC member" title="🇨🇦 Vancouver" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/122c7c95-9d4c-486a-b293-735c73a444f9.jpg" alt="DC member" title="🇹🇭 Bangkok" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9a71ee3e-dc70-44ce-b7e2-a30df8e02632.jpg" alt="DC member" title="🇬🇧 Manchester" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5e514673-10d9-4361-b55f-aeeb6bf4d52e.jpg" alt="DC member" title="🇵🇦 Panama City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/5fb4f648-ff88-4ad9-9baf-d03f5b492949.jpg" alt="DC member" title="🇺🇸 Fort Lauderdale" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9e29207be1ad4f343c19ecd70d23d5e3.jpg" alt="DC member" title="🇲🇽 Mexico City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fefbcb6d6c04b9f80a8cdda39935fa4f.jpg" alt="DC member" title="🇺🇸 San Francisco" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/b144dfea-f142-445c-a42f-5fdfe28e2c2d.jpg" alt="DC member" title="🇺🇸 Richfield" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/79de5a9d9985ccc445c5e2f77663573e.jpg" alt="DC member" title="🇬🇧 Edgware" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/v6ICRjClrSzAN3nlvCgr.jpeg" alt="DC member" title="🇮🇹 Milan" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/46217d5a-d0df-4806-8b58-e37fe0bb4137.jpg" alt="DC member" title="🇮🇹 Milan" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f6d971c8-58ad-474c-913c-a69ec7da7cd7.jpg" alt="DC member" title="🇺🇸 Kendall" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/de6dd29d-dd3b-4511-a5c2-c6e446958b94.jpg" alt="DC member" title="🇺🇸 Los Angeles" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bc249db6-2482-4d7c-8ab9-c5b88a092ad7.jpg" alt="DC member" title="🇨🇦 St. Catharines" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/46e25007-3e53-430c-96b2-b8cac9322885.jpg" alt="DC member" title="🇺🇸 St. Petersburg" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/3631d14f-ccbc-4b2a-ac58-3f1ebb5ec39a.jpg" alt="DC member" title="🇺🇸 Starkville" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f0d7e1272edf3fea1bdc74f9a36a75d6.jpg" alt="DC member" title="🇺🇸 Dallas" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dc001d43-cc68-4f6f-8a08-76395505d6f2.png" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6cddd910-5104-4c65-afb8-0dcaf644f601.jpg" alt="DC member" title="🇦🇺 Perth" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/59f40288-2330-4081-b87b-72097e4030e3.jpg" alt="DC member" title="🇺🇸 Los Angeles" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/22959968-ce49-4f49-8b43-c06a2c9908de.jpg" alt="DC member" title="🇺🇸 Saratoga Springs" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/ed8e3964-1d59-4a6e-b435-c66b48b5bf7e.jpg" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d89fe344-2b9c-4bba-91d2-6133cb84720c.png" alt="DC member" title="🇨🇴 Medellin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/cd5e7867-c72a-47cf-8400-54f8978f0a2d.jpg" alt="DC member" title="🇺🇸 Washingtonville" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/thumbs/reg_oagT7u5Vt8FxG4PhPDDa_320x320.webp" alt="DC member" title="🇺🇸 Pittsburgh" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/035e3a90-a6f8-4da4-ac70-801688ffe58b.jpg" alt="DC member" title="🇺🇸 New York" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/59c35400-e619-4064-8093-3b9b185c907d.jpg" alt="DC member" title="🇺🇸 Wind Gap" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/GbaMbTmmy08KT4fegu0w.jpeg" alt="DC member" title="🇩🇪 Berlin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/909f7aa6-cd89-481d-b0ac-07d0a1ce1525.jpg" alt="DC member" title="🇻🇳 da Nang" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0d5bb66c-ad9b-41fc-9f40-3dc7709f9d66.png" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fc4adf8f-12b3-407a-a6dc-f74cbb8ec5b1.jpg" alt="DC member" title="🇲🇹 Qormi" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/e0544692-ab87-482f-b809-e0fd2dd76ef8.jpg" alt="DC member" title="🇧🇬 Bansko" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/fa15f1f8-9bd2-40df-994c-127696d9c377.png" alt="DC member" title="🇨🇾 Limassol" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/21dc99d2-64f5-4162-9eac-83be34bcf049.png" alt="DC member" title="🇯🇵 Tokyo" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/f38142c4-05d2-4397-b304-14a71902d06c.jpg" alt="DC member" title="🇦🇺 Gold Coast" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/825219be2d8b07489bff10a4686131df.jpg" alt="DC member" title="🇹🇭 Chiang Mai" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/555b69cb0cc688b47920b79ccecc8d85.jpg" alt="DC member" title="🇲🇾 Jelutong" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6038f7312d4800ce05d3279e055e113d.jpg" alt="DC member" title="🇵🇹 Ericeira" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6bf79805-08aa-4d87-a243-2d86c5275ece.jpg" alt="DC member" title="🇬🇧 Blackburn" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/cc6ef6d8-7ab6-4f73-954f-73887f359069.jpg" alt="DC member" title="🇳🇿 Nelson" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/480cba91-7d86-451c-b3cb-242c7b1af176.jpg" alt="DC member" title="🇺🇸 Traverse City" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/d04c31b3-d9c2-463a-b9fe-9f29e6f9d13c.jpg" alt="DC member" title="🇧🇷 Sao Paulo" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/c74a4019-2b79-4ade-84d0-7727bedc439a.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/48cf2457-31cc-4197-8d42-5994a3a91e1b.png" alt="DC member" title="🇬🇩 Saint George's" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/947ac2a7-31f5-4894-a3ba-1e305bde6b1f.png" alt="DC member" title="🇺🇸 Tulsa" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9b2e3fc0-f462-462b-8849-ac6b2c03e97a.jpg" alt="DC member" title="🇦🇹 Vienna" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/1bdcd804-dc15-4ed3-bd6c-9e99fd1f31e1.jpg" alt="DC member" title="🇺🇸 San Diego" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/10ea9e8c-bd50-407c-8afb-20a5d260e607.jpg" alt="DC member" title="🇨🇦 Vancouver" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/76bb2013-de95-49a7-b89f-8123d1648084.jpg" alt="DC member" title="🇳🇿 Christchurch" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/eff387e10fcf824ca6424464bc69c496.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/2e2227ed7f3cbf6739f47a922827f2d5.jpg" alt="DC member" title="🇺🇸 Austin" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/0645e388-5234-414d-977c-07240b6fe572.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/6686c117-8402-45c4-9cbf-60fb82d957c3.jpg" alt="DC member" title="🇲🇽 Cancun" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/thumbs/reg_ajAv5ZTwG9hMWC3ORux6_320x320.webp" alt="DC member" title="🇲🇽 Playa del Carmen" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/dc3de281-a93c-4a34-885b-f8bb4c57bea3.jpg" alt="DC member" title="🇪🇸 Barcelona" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/9e23aab7-28fe-4281-960a-a3304667708e.jpg" alt="DC member" title="🇺🇸 Louisville" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/bdc8825b-f0ac-4619-a2b0-ed0757478969.jpg" alt="DC member" title="🇨🇿" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/57af9631-003a-4153-ac00-46aa42311ec8.jpg" alt="DC member" title="🇬🇧 London" class="face-img" loading="lazy">
-      <img src="https://cdn.dynamitecircle.com/profiles/30f982a0-700d-4d5f-a974-1a6d6273853d.jpg" alt="DC member" title="🇷🇴 Carei" class="face-img" loading="lazy">
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/193fa061f5e58e26b5b3e4a126838a7d.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇺🇸 Brownsville</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/a4abeaa6-877e-4516-b82c-2e4eef2a02ac.png" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇻🇳 Ho Chi Minh City</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/d993c19f-a4ba-4384-9eeb-7c8041782f09.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇵🇹 Lisbon</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/9689314f85de62b2284b9f0c7df90453.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇪🇸 Barcelona</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/35967e51-5da4-449c-abb6-bf759908661c.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇦🇺 Sydney</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/d4516f23-be95-42ee-a804-dbfe3d3c3be9.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇺🇸 Austin</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/1dd3c674-f641-421e-9b43-69d1e90f60ec.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇨🇦 Vancouver</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/394c49c0d4552dfa5923dce82bf1e0f7.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇨🇭 Zug</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/47a9d212-a90d-46e2-9f2e-3054032d0d3d.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇭🇺 Budapest</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/b78c900d-4804-49b9-9088-445bd165fcd3.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇹🇭 Chiang Mai</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/52129f37-34f7-49a8-9f24-7a4d2bad0c39.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇬🇧 London</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/44b2d1577668cfaabdbb26be0dff3386.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇩🇪 Berlin</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/95e53133-2dcf-441c-ae2e-f60cfadbbbbc.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇫🇷 Paris</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/b81706a1-6b07-4d01-8c5c-8ff2916d4e05.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇧🇷 São Paulo</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/b3a6baf0-2982-4932-8997-88a765ddcdb3.png" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇸🇬 Singapore</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/21dc99d2-64f5-4162-9eac-83be34bcf049.png" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇯🇵 Tokyo</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/b4158ccd-81ad-4a7b-ab97-7ff36a57c243.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇲🇽 Mexico City</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/fee0258e-25cb-4c00-8b0c-cb1e1e3d6139.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇳🇿 Christchurch</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/c68093d633b2552df9b8e5cbfb342870.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇨🇴 Medellín</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/472372ee-a693-4e58-9223-a491d8709390.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇮🇩 Bali</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/ec646b097bde78331c7f1c678579f797.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇦🇷 Buenos Aires</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/0506d8d3-8ca6-4dc3-b30f-7bf4eba62384.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇹🇭 Bangkok</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/5e514673-10d9-4361-b55f-aeeb6bf4d52e.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇵🇦 Panama City</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/5f9090d9-860a-4b34-bda8-a477c60a41af.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇳🇱 Rotterdam</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/15461551-a844-4040-8298-d9137bb6fb0f.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇺🇸 Denver</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/bd5adef3-4eb5-443b-a141-642214a4db49.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇦🇺 Melbourne</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/90ad1fc1-7e24-465c-852c-035e522d72a0.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇭🇰 Hong Kong</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/bcd43b2da12acca4425c725c25f83f03.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇮🇱 Tel Aviv</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/f10f1ff6-babd-43d2-bff2-339c8dcc8799.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇬🇷 Athens</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/2635d553-ae67-46c5-84d0-78b39fe9e52d.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇮🇪 Dublin</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/1d4f7deca6cba25b19d9c44d3986e7fb.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇷🇴 Bucharest</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/a26d374a-9c7c-47fe-8d5c-eb3461301b19.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇦🇩 Andorra</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/67f68f18-69ee-430a-906d-f6c23578bd52.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇺🇸 New York</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/98e662e0-2e03-4619-8414-d702ad1cd599.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇬🇧 Edinburgh</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/3c71267a-ddec-4cb8-9fd5-1db8deab4489.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇦🇺 Brisbane</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/dfe8a743-8f51-40f4-9e41-3a2676fdb8ed.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇻🇳 Hanoi</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/69bdb331955641786db9a3d2b6810720.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇲🇾 Penang</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/8b860b61efa0dc6042b218c543eb982a.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇹🇼 Taipei</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/46217d5a-d0df-4806-8b58-e37fe0bb4137.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇮🇹 Milan</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/b29402c7-a227-4465-8141-17e8c200780a.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇺🇸 Miami</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/9450ea04-c473-4d98-8465-0dde79c13f97.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇧🇬 Bansko</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/ee8acb52-6672-4747-824f-0d2b3d8bc6ec.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇸🇪 Stockholm</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/9ec47ba1-6b62-4d26-92da-695019897e44.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇵🇭 Manila</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/327925e5-93d1-4e2d-a28c-79db27fc4f71.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇵🇹 Porto</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/9b2e3fc0-f462-462b-8849-ac6b2c03e97a.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇦🇹 Vienna</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/3136ede7-0640-4642-9638-b164d38cb3a0.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇺🇸 San Francisco</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/6db0ca7b-0375-403b-9e3b-6b67329f7cc0.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇹🇭 Koh Samui</div>
+      </div>
+      <div class="face-card">
+        <img src="https://cdn.dynamitecircle.com/profiles/f38142c4-05d2-4397-b304-14a71902d06c.jpg" alt="DC member" class="face-img" loading="lazy">
+        <div class="face-loc">🇦🇺 Gold Coast</div>
+      </div>
     </div>
   </div>
 </section>
