@@ -77,10 +77,10 @@
   .stat-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
 
   /* EVENTS */
-  .preview-section { padding: 80px 0; background: linear-gradient(rgba(8,8,8,0.87), rgba(8,8,8,0.87)), url('https://cdn.dynamitecircle.com/images/0b58c70d650d7f6f45db86e65c13ca97.jpg') center/cover no-repeat; border-bottom: 1px solid var(--border); }
+  .preview-section { padding: 80px 0; background: linear-gradient(rgba(8,8,8,0.45), rgba(8,8,8,0.45)), url('https://cdn.dynamitecircle.com/images/0b58c70d650d7f6f45db86e65c13ca97.jpg') center/cover no-repeat; border-bottom: 1px solid var(--border); }
   .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
-  .event-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
-  .event-card.featured { border-color: rgba(255,73,33,0.35); background: rgba(255,73,33,0.04); }
+  .event-card { background: #141414; border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .event-card.featured { border-color: rgba(255,73,33,0.5); background: #1a1008; }
   .event-type { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); }
   .event-name { font-size: 17px; font-weight: 700; color: var(--white); line-height: 1.3; }
   .event-location { font-size: 13px; color: var(--muted); }
@@ -88,7 +88,7 @@
   .junto-section { margin-top: 56px; }
   .junto-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #444; margin-bottom: 18px; }
   .junto-cities { display: flex; flex-wrap: wrap; gap: 8px; }
-  .junto-city { font-size: 12px; color: #555; background: var(--bg-card); border: 1px solid var(--border); border-radius: 300px; padding: 5px 13px; }
+  .junto-city { font-size: 12px; color: #888; background: #141414; border: 1px solid var(--border); border-radius: 300px; padding: 5px 13px; }
   .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
   .section-title { font-size: clamp(22px, 2.8vw, 36px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
   .section-sub { font-size: 15px; color: var(--muted); max-width: 540px; line-height: 1.7; margin-bottom: 48px; }
@@ -142,7 +142,7 @@
   .th-replies { font-size: 11px; color: #333; margin-top: 5px; }
 
   /* MEMBER FACES */
-  .faces-section { padding: 80px 0; border-bottom: 1px solid var(--border); overflow: hidden; background: linear-gradient(rgba(8,8,8,0.84), rgba(8,8,8,0.84)), url('https://cdn.dynamitecircle.com/images/8558ca608f7e89a75647a7f7140f814c.jpg') center/cover no-repeat; }
+  .faces-section { padding: 80px 0; border-bottom: 1px solid var(--border); overflow: hidden; background: linear-gradient(rgba(8,8,8,0.55), rgba(8,8,8,0.55)), url('https://cdn.dynamitecircle.com/images/8558ca608f7e89a75647a7f7140f814c.jpg') center/cover no-repeat; }
   .faces-wrap { position: relative; margin-top: 48px; }
   .faces-wrap::before, .faces-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
   .faces-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
@@ -181,9 +181,9 @@
   .photo-break::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to top, var(--bg), transparent); z-index: 1; }
 
   /* WHAT YOU GET */
-  .get-section { padding: 80px 0; border-bottom: 1px solid var(--border); background: linear-gradient(rgba(8,8,8,0.91), rgba(8,8,8,0.91)), url('https://cdn.dynamitecircle.com/images/1addf71c54921d45932c74fde479f5c1.jpg') center 30%/cover no-repeat; }
-  .get-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; }
-  .get-cell { padding: 32px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .get-section { padding: 80px 0; border-bottom: 1px solid var(--border); background: linear-gradient(rgba(8,8,8,0.5), rgba(8,8,8,0.5)), url('https://cdn.dynamitecircle.com/images/1addf71c54921d45932c74fde479f5c1.jpg') center 30%/cover no-repeat; }
+  .get-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; background: #101010; }
+  .get-cell { padding: 32px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #101010; }
   .get-cell:nth-child(3n) { border-right: none; }
   .get-cell:nth-last-child(-n+3) { border-bottom: none; }
   .get-icon { font-size: 22px; margin-bottom: 14px; }
