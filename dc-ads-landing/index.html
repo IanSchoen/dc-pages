@@ -22,10 +22,23 @@
   .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
 
   /* NAV */
-  nav { position: sticky; top: 2px; z-index: 100; background: rgba(12,12,12,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; }
-  nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-  .nav-logo { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); text-decoration: none; }
-  .nav-cta { display: inline-block; padding: 9px 22px; background: var(--orange); color: var(--white); font-size: 13px; font-weight: 600; text-decoration: none; border: 2px solid var(--orange); border-radius: 300px; transition: background 0.15s, color 0.15s; }
+  nav { position: sticky; top: 2px; z-index: 100; background: rgba(12,12,12,0.97); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); height: 68px; display: flex; align-items: center; }
+  nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 24px; }
+  .nav-logo img { height: 36px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; padding-left: 20px; }
+  .nav-links > li { position: relative; }
+  .nav-links > li > a { font-size: 13px; font-weight: 500; color: #ccc; text-decoration: none; padding: 8px 12px; border-radius: 6px; display: block; transition: color 0.15s, background 0.15s; white-space: nowrap; }
+  .nav-links > li > a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+  .nav-links > li > a.nav-black { color: var(--orange); font-weight: 600; }
+  .nav-links > li > a.nav-black:hover { background: rgba(255,73,33,0.1); }
+  .nav-dropdown { position: absolute; top: calc(100% + 8px); left: 0; background: #1a1a1a; border: 1px solid var(--border-lt); border-radius: 10px; padding: 6px; min-width: 210px; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity 0.15s, transform 0.15s; z-index: 200; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+  .nav-links > li:hover .nav-dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .nav-dropdown a { display: block; font-size: 12.5px; color: #bbb; text-decoration: none; padding: 8px 12px; border-radius: 6px; transition: color 0.12s, background 0.12s; }
+  .nav-dropdown a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
+  .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .nav-login { font-size: 13px; font-weight: 500; color: #aaa; text-decoration: none; padding: 8px 12px; border-radius: 6px; transition: color 0.15s; white-space: nowrap; }
+  .nav-login:hover { color: var(--white); }
+  .nav-cta { display: inline-block; padding: 9px 20px; background: var(--orange); color: var(--white); font-size: 13px; font-weight: 600; text-decoration: none; border: 2px solid var(--orange); border-radius: 300px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
   .nav-cta:hover { background: transparent; color: var(--orange); }
 
   /* HERO */
@@ -196,10 +209,18 @@
   .req-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); flex-shrink: 0; margin-top: 7px; }
 
   /* FOOTER */
-  footer { padding: 36px 40px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--muted); }
-  footer a { color: var(--muted); text-decoration: none; }
-  footer a:hover { color: var(--white); }
-  .footer-links { display: flex; gap: 24px; }
+  footer { background: #050505; border-top: 1px solid var(--border); padding: 60px 0 32px; font-size: 13px; color: var(--muted); }
+  .footer-inner { display: grid; grid-template-columns: 200px 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; align-items: start; }
+  .footer-brand img { height: 32px; width: auto; display: block; margin-bottom: 16px; opacity: 0.85; }
+  .footer-brand p { font-size: 12px; color: #555; line-height: 1.6; max-width: 170px; }
+  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #555; margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 13px; color: #666; text-decoration: none; margin-bottom: 9px; transition: color 0.15s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid #1a1a1a; padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-bottom-copy { font-size: 12px; color: #444; }
+  .footer-bottom-links { display: flex; gap: 20px; }
+  .footer-bottom-links a { font-size: 12px; color: #444; text-decoration: none; transition: color 0.15s; }
+  .footer-bottom-links a:hover { color: #888; }
 
   /* RESPONSIVE */
   @media (max-width: 960px) {
@@ -212,6 +233,10 @@
     .hero { padding: 48px 0 56px; }
     .stats-bar-inner { flex-wrap: wrap; }
     .stat-item { flex: 1 1 50%; border-bottom: 1px solid var(--border); }
+    .nav-links { display: none; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
   }
 </style>
 </head>
@@ -220,9 +245,25 @@
 <!-- NAV -->
 <nav>
   <div class="container">
-    <a href="https://dynamitecircle.com" class="nav-logo">Dynamite Circle</a>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <button id="edit-btn" onclick="enableEditMode()" style="display:flex;align-items:center;gap:7px;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:8px 16px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#fff;">
+    <a href="https://dynamitecircle.com" class="nav-logo">
+      <img src="https://cdn.dynamitecircle.com/images/b8eeb89daa9b95567287c53e9d5e5784.png" alt="Dynamite Circle">
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://dynamitecircle.com/dc-black" class="nav-black">DC BLACK</a></li>
+      <li><a href="https://dynamitecircle.com/dcbkk">DCBKK</a></li>
+      <li><a href="https://dynamitecircle.com/dc-events">Events</a></li>
+      <li>
+        <a href="https://dynamitecircle.com/the-story">About ▾</a>
+        <div class="nav-dropdown">
+          <a href="https://dynamitecircle.com/the-story">The Story</a>
+          <a href="https://dynamitecircle.com/testimonials">Testimonials</a>
+          <a href="https://dynamitecircle.com/community-code-of-conduct">Community Code of Conduct</a>
+          <a href="https://dynamitecircle.com/news-and-blog">News &amp; Blog</a>
+        </div>
+      </li>
+    </ul>
+    <div class="nav-right">
+      <button id="edit-btn" onclick="enableEditMode()" style="display:flex;align-items:center;gap:7px;background:#1a1a1a;border:1px solid #444;border-radius:8px;padding:8px 14px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:#fff;">
         <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M9.5 1.5l3 3-8 8H1.5v-3l8-8z" stroke="#FF4921" stroke-width="1.4" stroke-linejoin="round"/></svg>
         Edit text
       </button>
@@ -231,7 +272,8 @@
         <button onclick="saveEdits()" style="background:#FF4921;color:#fff;border:none;border-radius:7px;padding:7px 16px;font-size:12px;font-weight:700;font-family:'Poppins',sans-serif;cursor:pointer;">Save &amp; download</button>
         <button onclick="discardEdits()" style="background:transparent;color:#666;border:1px solid #333;border-radius:7px;padding:7px 12px;font-size:12px;font-weight:600;font-family:'Poppins',sans-serif;cursor:pointer;">Discard</button>
       </div>
-      <a href="https://dynamitecircle.com/account/apply" class="nav-cta">See if you qualify</a>
+      <a href="https://dc.dynamitecircle.com" class="nav-login">Login</a>
+      <a href="https://dynamitecircle.com/account/apply" class="nav-cta">Apply to join</a>
     </div>
   </div>
 </nav>
@@ -782,10 +824,51 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Dynamite Circle. All rights reserved.</span>
-  <div class="footer-links">
-    <a href="https://dynamitecircle.com">dynamitecircle.com</a>
-    <a href="https://dynamitecircle.com/account/apply">Apply to join</a>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="https://cdn.dynamitecircle.com/images/6bb22c821c0048b84b982e2c882a57a8.png" alt="Dynamite Circle">
+        <p>The place where global founders find their people.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Explore</div>
+        <a href="https://dc.dynamitecircle.com">Members Login</a>
+        <a href="https://dynamitecircle.com/dc-black">DC BLACK</a>
+        <a href="https://dynamitecircle.com/news-and-blog">News &amp; Blog</a>
+        <a href="https://dynamitecircle.com/app">DC Mobile App</a>
+        <a href="https://dynamitecircle.com/the-story">About</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Network</div>
+        <a href="https://dynamitecircle.com">Dynamite Circle</a>
+        <a href="https://tropicalmba.com">Tropical MBA</a>
+        <a href="https://dynamitejobs.com">Dynamite Jobs</a>
+        <a href="https://remotefirstrecruiting.com">Remote First Recruiting</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Events</div>
+        <a href="https://dynamitecircle.com/dcbkk">DCBKK</a>
+        <a href="https://dynamitecircle.com/dc-events">All Events</a>
+        <a href="https://dynamitecircle.com/chapters">All Chapters</a>
+        <a href="https://dynamitecircle.com/requirements">Requirements</a>
+        <a href="https://dynamitecircle.com/account/apply">Join DC</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">More</div>
+        <a href="https://dynamitecircle.com/community-code-of-conduct">Code of Conduct</a>
+        <a href="https://dynamitecircle.com/privacy-policy">Privacy Policy</a>
+        <a href="https://dynamitecircle.com/terms-of-service">Terms of Service</a>
+        <a href="https://dynamitecircle.com/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-copy">© Dynamite Ventures, Inc. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="https://dynamitecircle.com/privacy-policy">Privacy</a>
+        <a href="https://dynamitecircle.com/terms-of-service">Terms</a>
+        <a href="https://instagram.com/dynamitecircle" target="_blank">Instagram</a>
+      </div>
+    </div>
   </div>
 </footer>
 
