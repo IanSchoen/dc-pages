@@ -77,7 +77,7 @@
   .stat-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
 
   /* EVENTS */
-  .preview-section { padding: 80px 0; background: var(--bg-raised); border-bottom: 1px solid var(--border); }
+  .preview-section { padding: 80px 0; background: linear-gradient(rgba(8,8,8,0.87), rgba(8,8,8,0.87)), url('https://cdn.dynamitecircle.com/images/0b58c70d650d7f6f45db86e65c13ca97.jpg') center/cover no-repeat; border-bottom: 1px solid var(--border); }
   .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
   .event-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
   .event-card.featured { border-color: rgba(255,73,33,0.35); background: rgba(255,73,33,0.04); }
@@ -142,7 +142,7 @@
   .th-replies { font-size: 11px; color: #333; margin-top: 5px; }
 
   /* MEMBER FACES */
-  .faces-section { padding: 80px 0; border-bottom: 1px solid var(--border); overflow: hidden; }
+  .faces-section { padding: 80px 0; border-bottom: 1px solid var(--border); overflow: hidden; background: linear-gradient(rgba(8,8,8,0.84), rgba(8,8,8,0.84)), url('https://cdn.dynamitecircle.com/images/8558ca608f7e89a75647a7f7140f814c.jpg') center/cover no-repeat; }
   .faces-wrap { position: relative; margin-top: 48px; }
   .faces-wrap::before, .faces-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
   .faces-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
@@ -174,8 +174,14 @@
   .testi-name { font-size: 13px; font-weight: 700; }
   .testi-biz { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
+  /* PHOTO BREAK */
+  .photo-break { position: relative; height: 360px; overflow: hidden; border-bottom: 1px solid var(--border); }
+  .photo-break img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+  .photo-break::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, var(--bg-raised), transparent); z-index: 1; }
+  .photo-break::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to top, var(--bg), transparent); z-index: 1; }
+
   /* WHAT YOU GET */
-  .get-section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  .get-section { padding: 80px 0; border-bottom: 1px solid var(--border); background: linear-gradient(rgba(8,8,8,0.91), rgba(8,8,8,0.91)), url('https://cdn.dynamitecircle.com/images/1addf71c54921d45932c74fde479f5c1.jpg') center 30%/cover no-repeat; }
   .get-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px; }
   .get-cell { padding: 32px 28px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .get-cell:nth-child(3n) { border-right: none; }
@@ -423,97 +429,78 @@
       <div class="faces-strip">
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/52129f37-34f7-49a8-9f24-7a4d2bad0c39.jpg" alt="Michaela Light" class="face-img">
-          <div class="face-name">Michaela Light</div>
           <div class="face-loc">🇬🇧 London</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/a4abeaa6-877e-4516-b82c-2e4eef2a02ac.png" alt="Chris Dietrich" class="face-img">
-          <div class="face-name">Chris Dietrich</div>
           <div class="face-loc">🇻🇳 Ho Chi Minh City</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/65c29fe2-48dd-4986-9e4d-662a8eba4a85.jpg" alt="Karla Singson" class="face-img">
-          <div class="face-name">Karla Singson</div>
           <div class="face-loc">🇵🇭 Philippines</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/434f5cc8-1c9b-4148-a521-183150bbc996.jpg" alt="Adrijus Guscia" class="face-img">
-          <div class="face-name">Adrijus Guscia</div>
           <div class="face-loc">🇱🇹 Vilnius</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/85bff1e8-b606-44e0-a083-e1c718388e58.png" alt="Sofie Couwenbergh" class="face-img">
-          <div class="face-name">Sofie Couwenbergh</div>
           <div class="face-loc">🇵🇹 Lisbon</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/c68093d633b2552df9b8e5cbfb342870.jpg" alt="Markus Seebauer" class="face-img">
-          <div class="face-name">Markus Seebauer</div>
           <div class="face-loc">🇨🇴 Medellín</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/21dc99d2-64f5-4162-9eac-83be34bcf049.png" alt="Andy Fossett" class="face-img">
-          <div class="face-name">Andy Fossett</div>
           <div class="face-loc">🇯🇵 Tokyo</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/0506d8d3-8ca6-4dc3-b30f-7bf4eba62384.jpg" alt="Brendan Tully" class="face-img">
-          <div class="face-name">Brendan Tully</div>
           <div class="face-loc">🇹🇭 Bangkok</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/d4516f23-be95-42ee-a804-dbfe3d3c3be9.jpg" alt="Dana Lindahl" class="face-img">
-          <div class="face-name">Dana Lindahl</div>
           <div class="face-loc">🇺🇸 Austin</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/5f9090d9-860a-4b34-bda8-a477c60a41af.jpg" alt="Martijn Reintjes" class="face-img">
-          <div class="face-name">Martijn Reintjes</div>
           <div class="face-loc">🇳🇱 Rotterdam</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/bd5adef3-4eb5-443b-a141-642214a4db49.jpg" alt="Matthew Newton" class="face-img">
-          <div class="face-name">Matthew Newton</div>
           <div class="face-loc">🇦🇺 Melbourne</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/ff075b60-9ffe-4d88-bae3-859c6d7e4c9c.jpg" alt="Vinh Ho" class="face-img">
-          <div class="face-name">Vinh Ho</div>
           <div class="face-loc">🇦🇺 Sydney</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/a26d374a-9c7c-47fe-8d5c-eb3461301b19.jpg" alt="Jase Rodley" class="face-img">
-          <div class="face-name">Jase Rodley</div>
           <div class="face-loc">🇦🇩 Andorra</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/5e514673-10d9-4361-b55f-aeeb6bf4d52e.jpg" alt="Jesse Schoberg" class="face-img">
-          <div class="face-name">Jesse Schoberg</div>
           <div class="face-loc">🇵🇦 Panama City</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/15461551-a844-4040-8298-d9137bb6fb0f.jpg" alt="Jessica Malnik" class="face-img">
-          <div class="face-name">Jessica Malnik</div>
           <div class="face-loc">🇺🇸 Denver</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/472372ee-a693-4e58-9223-a491d8709390.jpg" alt="Almog Flitter" class="face-img">
-          <div class="face-name">Almog Flitter</div>
           <div class="face-loc">🇮🇩 Bali</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/3c71267a-ddec-4cb8-9fd5-1db8deab4489.jpg" alt="Alan Gould" class="face-img">
-          <div class="face-name">Alan Gould</div>
           <div class="face-loc">🇦🇺 Brisbane</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/8dc5ea92-c7f2-452a-ac41-01b7e6f5b51e.jpg" alt="Dan Norris" class="face-img">
-          <div class="face-name">Dan Norris</div>
           <div class="face-loc">🇦🇺 Brisbane</div>
         </div>
         <div class="face-card">
           <img src="https://cdn.dynamitecircle.com/profiles/3136ede7-0640-4642-9638-b164d38cb3a0.jpg" alt="Derek Pankaew" class="face-img">
-          <div class="face-name">Derek Pankaew</div>
           <div class="face-loc">🇺🇸 San Francisco</div>
         </div>
         <div class="face-card" style="align-items:center;justify-content:center;min-width:80px;">
@@ -543,6 +530,11 @@
     </div>
   </div>
 </section>
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://cdn.dynamitecircle.com/images/ab6747753bc60a055921b07d720d3ad6.jpg" alt="DC members networking at DCBKK">
+</div>
 
 <!-- TESTIMONIALS -->
 <section class="testi-section">
