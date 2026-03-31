@@ -76,8 +76,19 @@
   .stat-num span { color: var(--orange); }
   .stat-label { font-size: 11px; color: var(--muted); margin-top: 3px; }
 
-  /* PLATFORM PREVIEW */
+  /* EVENTS */
   .preview-section { padding: 80px 0; background: var(--bg-raised); border-bottom: 1px solid var(--border); }
+  .event-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .event-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .event-card.featured { border-color: rgba(255,73,33,0.35); background: rgba(255,73,33,0.04); }
+  .event-type { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); }
+  .event-name { font-size: 17px; font-weight: 700; color: var(--white); line-height: 1.3; }
+  .event-location { font-size: 13px; color: var(--muted); }
+  .event-dates { font-size: 12px; font-weight: 600; color: var(--dim); margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); }
+  .junto-section { margin-top: 56px; }
+  .junto-label { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #444; margin-bottom: 18px; }
+  .junto-cities { display: flex; flex-wrap: wrap; gap: 8px; }
+  .junto-city { font-size: 12px; color: #555; background: var(--bg-card); border: 1px solid var(--border); border-radius: 300px; padding: 5px 13px; }
   .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
   .section-title { font-size: clamp(22px, 2.8vw, 36px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
   .section-sub { font-size: 15px; color: var(--muted); max-width: 540px; line-height: 1.7; margin-bottom: 48px; }
@@ -285,132 +296,105 @@
   </div>
 </section>
 
-<!-- PLATFORM PREVIEW -->
+<!-- EVENTS -->
 <section class="preview-section">
   <div class="container">
-    <div class="section-label">Inside the platform</div>
-    <h2 class="section-title">Our platform.</h2>
-    <p class="section-sub">Not a pitch. A real look at the DC platform — the discussions, the channels, the people who are online right now. Member names are anonymized.</p>
+    <div class="section-label">Where we gather</div>
+    <h2 class="section-title">Our events.</h2>
+    <p class="section-sub">DC members meet in person all over the world — from our flagship 300-person conference in Bangkok to intimate 20-person gatherings in Barcelona and Taipei. Here's what's on for 2026.</p>
 
-    <div class="browser">
-      <div class="browser-bar">
-        <div class="browser-dots">
-          <div class="browser-dot red"></div><div class="browser-dot yellow"></div><div class="browser-dot green"></div>
-        </div>
-        <div class="browser-url">dynamitecircle.com/app · Members only</div>
+    <div class="event-grid">
+
+      <!-- DCBKK 2026 — flagship, most prominent -->
+      <div class="event-card featured" style="grid-column: span 2;">
+        <div class="event-type">Flagship Conference</div>
+        <div class="event-name">DCBKK 2026</div>
+        <div class="event-location">🇹🇭 Bangkok, Thailand</div>
+        <div style="font-size:13px;color:var(--dim);line-height:1.6;margin-top:4px;">The annual centerpiece. 300+ members across 4 days — workshops, masterminds, business deep-dives, and the connections that carry you for years. The biggest gathering of location-independent founders on the planet.</div>
+        <div class="event-dates">Oct 22 – 25, 2026</div>
       </div>
-      <div class="app-layout">
 
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-          <div class="sb-section">
-            <div class="sb-label">Main</div>
-            <div class="sb-item on">
-              <svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v10H2V2zm0 12l3-2h9V2H2v12z" opacity=".6"/></svg>
-              Discussions <span class="sb-badge">12</span>
-            </div>
-            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="6"/></svg> Members</div>
-            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/></svg> Events</div>
-            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v2H3V3zm0 4h10v2H3V7zm0 4h7v2H3v-2z"/></svg> Masterminds</div>
-          </div>
-          <div class="sb-hr"></div>
-          <div class="sb-section">
-            <div class="sb-label">Channels</div>
-            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> SaaS & Tech <span class="sb-badge">31</span></div>
-            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> Agency Owners</div>
-            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> AI</div>
-            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> E-commerce</div>
-            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> Investing</div>
-            <div class="sb-item"><span style="font-size:10px;color:#3a3a3a;font-weight:700;margin-right:2px">#</span> Info Products</div>
-            <div class="sb-item" style="color:#2e2e2e;"><span style="font-size:10px;color:#2e2e2e;font-weight:700;margin-right:2px">#</span> + 12 more channels</div>
-          </div>
-          <div class="sb-hr"></div>
-          <div class="sb-section">
-            <div class="sb-label">Your City</div>
-            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg> Bangkok</div>
-            <div class="sb-item"><svg class="sb-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 100 10A5 5 0 008 1zm0 7a2 2 0 110-4 2 2 0 010 4z"/></svg> Berlin</div>
-          </div>
-        </div>
+      <!-- DCMEX 2026 -->
+      <div class="event-card featured">
+        <div class="event-type">Flagship Conference</div>
+        <div class="event-name">DCMEX 2026</div>
+        <div class="event-location">🇲🇽 Mexico City</div>
+        <div class="event-dates">May 5 – 8, 2026</div>
+      </div>
 
-        <!-- MAIN FEED -->
-        <div class="app-main">
-          <div class="app-bar">
-            <div>
-              <div class="app-bar-title">Discussions — Help me with my business</div>
-              <div class="app-bar-meta">23,622 posts · Most active category</div>
-            </div>
-            <div style="font-size:11px;color:#3a3a3a;">Sort: Recent ↓</div>
-          </div>
-          <div class="app-feed">
+      <!-- DC BLACK Barcelona -->
+      <div class="event-card">
+        <div class="event-type">DC BLACK · Premium</div>
+        <div class="event-name">DC BLACK Barcelona</div>
+        <div class="event-location">🇪🇸 Barcelona, Spain</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;margin-top:2px;">Intimate 25-person gathering. DC BLACK members only.</div>
+        <div class="event-dates">Jul 28 – 30, 2026</div>
+      </div>
 
-            <!-- ONLINE NOW -->
-            <div class="online-strip">
-              <div class="online-label">Online now — 38 members</div>
-              <div class="online-row">
-                <div class="mc"><div class="mc-av" style="background:#1a2a1a;">🇬🇧</div><div class="mc-role">SaaS founder</div><div class="mc-loc">🇬🇧 London</div></div>
-                <div class="mc"><div class="mc-av" style="background:#1a1a2a;">🇹🇭</div><div class="mc-role">Agency owner</div><div class="mc-loc">🇹🇭 Bangkok</div></div>
-                <div class="mc"><div class="mc-av" style="background:#2a1a1a;">🇵🇹</div><div class="mc-role">Consultant</div><div class="mc-loc">🇵🇹 Lisbon</div></div>
-                <div class="mc"><div class="mc-av" style="background:#1a2a2a;">🇦🇺</div><div class="mc-role">E-commerce</div><div class="mc-loc">🇦🇺 Sydney</div></div>
-                <div class="mc"><div class="mc-av" style="background:#2a2a1a;">🇲🇽</div><div class="mc-role">Info products</div><div class="mc-loc">🇲🇽 Mexico City</div></div>
-                <div class="mc"><div class="mc-av" style="background:#2a1a2a;">🇩🇪</div><div class="mc-role">Productized SVC</div><div class="mc-loc">🇩🇪 Berlin</div></div>
-              </div>
-            </div>
+      <!-- DCX Gold Coast -->
+      <div class="event-card featured">
+        <div class="event-type">DC Week</div>
+        <div class="event-name">DCX Gold Coast</div>
+        <div class="event-location">🇦🇺 Gold Coast, Australia</div>
+        <div class="event-dates">Apr 10 – 12, 2026</div>
+      </div>
 
-            <!-- REAL DISCUSSION THREADS -->
-            <div class="thread hot">
-              <div class="th-av" style="background:#1a2a1a;">🌿</div>
-              <div class="th-body">
-                <div class="th-top"><span class="th-who">Member · Agency Owner · 🇬🇧</span><span class="th-when">2h ago</span></div>
-                <div class="th-title">Building a great/healthy company culture?</div>
-                <div class="th-preview">We're at 12 people across 4 countries. Culture happens accidentally or intentionally — I want to be intentional about it but don't know where to start...</div>
-                <div class="th-tags"><span class="th-tag o">Help me with my business</span><span class="th-tag">Hiring</span></div>
-                <div class="th-replies">↩ 9 replies</div>
-              </div>
-            </div>
-            <div class="thread hot">
-              <div class="th-av" style="background:#2a1a1a;">🔥</div>
-              <div class="th-body">
-                <div class="th-top"><span class="th-who">Member · SaaS founder · 🇺🇸</span><span class="th-when">4h ago</span></div>
-                <div class="th-title">AI-first mastermind forming — CST evenings, 3–5 builders</div>
-                <div class="th-preview">Looking for 3-5 people actively building AI products — not just experimenting, actually shipping. Weekly 60-min calls, serious accountability...</div>
-                <div class="th-tags"><span class="th-tag o">Mastermind</span><span class="th-tag">AI</span></div>
-                <div class="th-replies">↩ 11 replies</div>
-              </div>
-            </div>
-            <div class="thread">
-              <div class="th-av" style="background:#1a1a2a;">💼</div>
-              <div class="th-body">
-                <div class="th-top"><span class="th-who">Member · Consultant · 🇩🇪</span><span class="th-when">6h ago</span></div>
-                <div class="th-title">Paying contractors with a declining dollar — how do you handle it?</div>
-                <div class="th-preview">My contractor in South Africa says she gets paid ~20% less in rand now vs. 18 months ago. Do you absorb it, adjust the rate, pay in local currency?</div>
-                <div class="th-tags"><span class="th-tag o">Help me with my business</span><span class="th-tag">International Banking</span></div>
-                <div class="th-replies">↩ 18 replies</div>
-              </div>
-            </div>
-            <div class="thread">
-              <div class="th-av" style="background:#2a2a1a;">⚡</div>
-              <div class="th-body">
-                <div class="th-top"><span class="th-who">Member · E-commerce · 🇹🇭</span><span class="th-when">Yesterday</span></div>
-                <div class="th-title">Huge spike in direct traffic from Google data centers — anyone else?</div>
-                <div class="th-preview">Seeing 4x baseline direct traffic from Google data center IPs. Started 3 weeks ago. Not bots, not customers...</div>
-                <div class="th-tags"><span class="th-tag">SEO / SEM</span><span class="th-tag">E-Commerce</span></div>
-                <div class="th-replies">↩ 31 replies</div>
-              </div>
-            </div>
-            <div class="thread">
-              <div class="th-av" style="background:#1a2a2a;">🌎</div>
-              <div class="th-body">
-                <div class="th-top"><span class="th-who">Member · Info products · 🇨🇦</span><span class="th-when">Yesterday</span></div>
-                <div class="th-title">Setting up a company in Estonia — tips from people who've done it?</div>
-                <div class="th-preview">I've read the e-Residency guides but want to hear from people who've actually done it. Tax, banking, the real friction...</div>
-                <div class="th-tags"><span class="th-tag">International Banking</span><span class="th-tag">Legal</span></div>
-                <div class="th-replies">↩ 14 replies</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- DC BLACK NYC -->
+      <div class="event-card">
+        <div class="event-type">DC BLACK · Premium</div>
+        <div class="event-name">DC BLACK NYC</div>
+        <div class="event-location">🇺🇸 New York City</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.5;margin-top:2px;">Intimate gathering. DC BLACK members only.</div>
+        <div class="event-dates">Dec 8 – 10, 2026</div>
+      </div>
+
+      <!-- DC BLACK Lisbon — already happened -->
+      <div class="event-card" style="opacity:0.55;">
+        <div class="event-type">DC BLACK · Premium</div>
+        <div class="event-name">DC BLACK Lisbon</div>
+        <div class="event-location">🇵🇹 Lisbon, Portugal</div>
+        <div class="event-dates">Feb 24 – 26, 2026 · Sold out</div>
+      </div>
+
+      <!-- DC BLACK Taipei — already happened -->
+      <div class="event-card" style="opacity:0.55;">
+        <div class="event-type">DC BLACK · Premium</div>
+        <div class="event-name">DC BLACK Taipei</div>
+        <div class="event-location">🇹🇼 Taipei, Taiwan</div>
+        <div class="event-dates">Mar 3 – 5, 2026 · Sold out</div>
+      </div>
+
+    </div>
+
+    <!-- JUNTO STRIP -->
+    <div class="junto-section">
+      <div class="junto-label">Monthly juntos — free member meetups</div>
+      <div class="junto-cities">
+        <div class="junto-city">🇹🇭 Bangkok</div>
+        <div class="junto-city">🇪🇸 Barcelona</div>
+        <div class="junto-city">🇵🇹 Lisbon</div>
+        <div class="junto-city">🇯🇵 Tokyo</div>
+        <div class="junto-city">🇬🇧 London</div>
+        <div class="junto-city">🇳🇱 Amsterdam</div>
+        <div class="junto-city">🇸🇬 Singapore</div>
+        <div class="junto-city">🇦🇺 Sydney</div>
+        <div class="junto-city">🇲🇽 Mexico City</div>
+        <div class="junto-city">🇺🇸 New York</div>
+        <div class="junto-city">🇨🇦 Vancouver</div>
+        <div class="junto-city">🇺🇸 Austin</div>
+        <div class="junto-city">🇺🇸 San Diego</div>
+        <div class="junto-city">🇧🇷 São Paulo</div>
+        <div class="junto-city">🇵🇭 Manila</div>
+        <div class="junto-city">🇦🇺 Gold Coast</div>
+        <div class="junto-city">🇭🇰 Hong Kong</div>
+        <div class="junto-city">🇨🇦 Montreal</div>
+        <div class="junto-city">🇲🇽 Playa del Carmen</div>
+        <div class="junto-city">🇦🇷 Buenos Aires</div>
+        <div class="junto-city">🇺🇸 Portland</div>
+        <div class="junto-city">+ more</div>
       </div>
     </div>
+
   </div>
 </section>
 
