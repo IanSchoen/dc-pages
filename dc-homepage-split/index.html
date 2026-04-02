@@ -1951,12 +1951,45 @@ $(document).ready(function($){
     </a>
     <a
       href="https://www.dynamitecircle.com/dc-black/"
-      class="sqs-block-button-element--medium sqs-button-element--primary sqs-block-button-element"
-      data-sqsp-button
-      style="margin-left: 12px; background: #000 !important; background-color: #000 !important; border-color: #000 !important; color: #fff !important; box-shadow: none !important; display: inline-block !important; box-sizing: border-box !important;"
+      id="dcb-hero-btn"
     >
-      Doing $1M+? See DC BLACK
+      Doing $1M+? See DC BLACK →
     </a>
+    <style>
+      #dcb-hero-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 700;
+        border-radius: 500px;
+        border: 2px solid #444;
+        padding: 0;
+        margin-left: 12px;
+        white-space: nowrap;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+    </style>
+    <script>
+      (function() {
+        var apply = document.querySelector('.sqs-block-button-element--medium.sqs-button-element--primary');
+        var dcb = document.getElementById('dcb-hero-btn');
+        if (apply && dcb) {
+          var s = window.getComputedStyle(apply);
+          dcb.style.height = apply.offsetHeight + 'px';
+          dcb.style.paddingLeft = s.paddingLeft;
+          dcb.style.paddingRight = s.paddingRight;
+          dcb.style.fontSize = s.fontSize;
+          dcb.style.lineHeight = s.lineHeight;
+          dcb.style.letterSpacing = s.letterSpacing;
+        }
+      })();
+    </script>
     
 
 
